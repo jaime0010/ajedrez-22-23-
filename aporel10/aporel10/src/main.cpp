@@ -1,4 +1,6 @@
 #include "freeglut.h"
+#include "Tablero.h"
+Tablero tab;
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
@@ -6,6 +8,9 @@
 void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
+void OnMouseClick(int button, int state, int x, int y); //LLamada para la gestion del raton
+void resize(int width, int height); //LLamada para no maximizar pantalla
+
 
 int main(int argc, char* argv[])
 {
@@ -48,7 +53,7 @@ void OnDraw(void)
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
 	//aqui es donde hay que poner el código de dibujo
-	glutWireCube(5);
+	tab.dibuja();
 
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
@@ -61,4 +66,11 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 void OnTimer(int value)
 {
 
+}
+void OnMouseClick(int button, int state, int x, int y)
+{
+	bool down = (state == GLUT_DOWN);
+	if (button== GLUT_LEFT_BUTTON)
+		
+	glutPostRedisplay();
 }
