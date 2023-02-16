@@ -1,12 +1,14 @@
 #include "Tablero.h"
 #include "freeglut.h"
 
+
 Tablero::Tablero()
 {
 }
 
 void Tablero::dibuja()
 {
+	
 	for (int fila = 0; fila < filas; fila++)
 	{
 		for (int columna = 0; columna < columnas; columna++)

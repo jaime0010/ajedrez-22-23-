@@ -1,5 +1,7 @@
 #include "freeglut.h"
+#include<iostream>
 #include "Tablero.h"
+#include "ETSIDI.h"
 Tablero tab;
 
 //los callback, funciones que seran llamadas automaticamente por la glut
@@ -32,6 +34,7 @@ int main(int argc, char* argv[])
 	//Registrar los callbacks
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
+	glutMouseFunc(OnMouseClick);
 	glutKeyboardFunc(OnKeyboardDown);
 
 	//pasarle el control a GLUT,que llamara a los callbacks
@@ -53,6 +56,8 @@ void OnDraw(void)
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
 	//aqui es donde hay que poner el código de dibujo
+
+	
 	tab.dibuja();
 
 	//no borrar esta linea ni poner nada despues
@@ -60,17 +65,30 @@ void OnDraw(void)
 }
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
+	
+
+
+	
 
 }
 
 void OnTimer(int value)
 {
-
+	
 }
 void OnMouseClick(int button, int state, int x, int y)
 {
-	bool down = (state == GLUT_DOWN);
-	if (button== GLUT_LEFT_BUTTON)
-		
-	glutPostRedisplay();
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+	{
+		//store the x,y value where the click happened
+		std::cout << x << " : " << y << std::endl;//pintamos las coordenadas x e y cuando pulsamos el boton izquierdo del raton
+
+		ETSIDI::playMusica("sonidos/disparo.mp3");
+	
+	}
+	
+}
+
+void resize(int width, int height)
+{
 }
