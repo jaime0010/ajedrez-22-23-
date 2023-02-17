@@ -1,20 +1,8 @@
 #pragma once
 #include "Pieza.h"
-class peon :public Pieza
+class Peon :public Pieza
 {
-private:
-		peon(Color c) :Pieza(c, PEON) {};
-	public:
-		TipoPieza* getTipoPieza()
-		{
-			return &pieza;
-			
-		}
-		Color* getColor()
-		{
-			return &color;
-			
-		}
+public:
+		Peon(Color c) :Pieza(c, PEON) {};
 		
-
 };

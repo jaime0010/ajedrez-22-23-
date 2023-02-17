@@ -2,7 +2,8 @@
 
 Tablero::Tablero()
 {
-	tab[2][2] = new peon() ;
+	tab[2][2] = new Peon(Pieza::BLANCO) ;
+
 }
 
 Tablero::~Tablero()
