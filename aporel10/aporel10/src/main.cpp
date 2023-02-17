@@ -2,6 +2,7 @@
 #include<iostream>
 #include "Tablero.h"
 #include "ETSIDI.h"
+using namespace std;
 Tablero tab;
 
 //los callback, funciones que seran llamadas automaticamente por la glut

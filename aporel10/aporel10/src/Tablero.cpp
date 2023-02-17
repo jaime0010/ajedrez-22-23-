@@ -1,9 +1,20 @@
 #include "Tablero.h"
-#include "freeglut.h"
-
 
 Tablero::Tablero()
 {
+	tab[2][2] = new peon() ;
+}
+
+Tablero::~Tablero()
+{
+
+	for (int i = 0; i < filas; i++)
+	{
+		for (int j = 0; j < columnas; j++)
+		{
+			delete tab[i][j];
+		}
+	}
 }
 
 void Tablero::dibuja()
