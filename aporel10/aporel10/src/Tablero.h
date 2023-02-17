@@ -15,4 +15,5 @@ public:
 	Tablero();
 	~Tablero();
 	void dibuja();
+	void get_cor(int, int);
 };

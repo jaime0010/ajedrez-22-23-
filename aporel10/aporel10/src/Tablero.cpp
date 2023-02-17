@@ -37,4 +37,10 @@ void Tablero::dibuja()
 			glEnable(GL_LIGHTING);
 		}
 	}
+	tab[2][2]->dibuja();
+}
+
+void Tablero::get_cor(int x, int y)
+{
+	std::cout << x << y << std::endl;
 }

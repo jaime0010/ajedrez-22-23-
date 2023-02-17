@@ -1,9 +1,9 @@
-#include "Pieza.h"
+
+#include "Peon.h"
 
 
-class Peon : public Pieza
+
+void Peon::dibuja()
 {
-	
-
-
-};
+	glutSolidSphere(1, 20, 20);
+}

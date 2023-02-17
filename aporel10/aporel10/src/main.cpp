@@ -104,7 +104,7 @@ void OnMouseClick(int button, int state, int x, int y)
 			 std::cout << " CASILLA FUERA DE LIMITES " << std::endl;
 		else  
 			std::cout << x << " : " << y << std::endl;//pintamos las coordenadas x e y cuando pulsamos el boton izquierdo del raton
-		
+		 tab.get_cor(x, y);
 		
 
 		ETSIDI::playMusica("sonidos/disparo.mp3");
