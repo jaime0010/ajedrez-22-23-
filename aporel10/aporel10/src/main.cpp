@@ -81,7 +81,14 @@ void OnMouseClick(int button, int state, int x, int y)
 {
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		if (x > 208 && x < 251)x = 1;
+		if (x > 208 && x < 251)
+		{
+			x = 1;
+			//glEnable(GL_TEXTURE_2D);         glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/peon-blanco.png").id);
+			//glDisable(GL_LIGHTING);
+			//glBegin(GL_POLYGON);
+		}
+			
 		 if (x > 252 && x < 294)x = 2;
 		 if (x > 295 && x < 337)x = 3;
 		 if (x > 338 && x < 379)x = 4;

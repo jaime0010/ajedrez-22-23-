@@ -37,6 +37,7 @@ void Tablero::dibuja()
 			glEnable(GL_LIGHTING);
 		}
 	}
+	
 	tab[2][2]->dibuja();
 }
 
