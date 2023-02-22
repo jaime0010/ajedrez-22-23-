@@ -1,4 +1,6 @@
 ﻿  Tablero.cpp
-C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10\aporel10\src\Tablero.cpp(53,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10\aporel10\src\Tablero.cpp(53,24): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10\aporel10\src\Tablero.cpp(59,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10\aporel10\src\Tablero.cpp(59,24): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+  main.cpp
+  Generando código...
   aporel10.vcxproj -> C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10\bin\aporel10.exe

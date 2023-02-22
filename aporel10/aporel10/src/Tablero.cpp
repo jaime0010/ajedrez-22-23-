@@ -2,15 +2,19 @@
 
 Tablero::Tablero()
 {
-	for (int i = 0; i < filas; i++)
+	for (int i = 0; i< filas; i++)
 	{
 		for (int j = 0; j < columnas; j++)
 		{
 			tab[i][j]=nullptr;
 		}
 	}
-	tab[2][2] = new Peon(Pieza::BLANCO) ;
-	tab[1][1] = new Peon(Pieza::NEGRO);
+	for (int j = 0; j <columnas; j++)//EL VECTOR VA DE 0 A 7, POR ESO SE PONE 6 Y 1 EN LAS COORDENADAS
+	{
+		tab[1][j] = new Peon(Pieza::BLANCO);
+		tab[6][j] = new Peon(Pieza::NEGRO);
+	}
+	
 
 }
 
@@ -49,6 +53,8 @@ void Tablero::dibuja()
 	{
 		for (int columna = 0; columna < columnas; columna++)
 		{
+			if ((fila + columna) % 2 == 0) glColor3ub(100, 100, 100);
+			else glColor3ub(255, 255, 255);
 			glPushMatrix();
 			glTranslatef(columna+0.5, fila+0.5, 0);
 			if(tab[fila][columna])tab[fila][columna]->dibuja();
@@ -57,11 +63,10 @@ void Tablero::dibuja()
 	}
 	
 	
-	//tab[2][2]->dibuja();
-	//tab[1][1]->dibuja();
+	
 }
 
 void Tablero::get_cor(int x, int y)
 {
-	std::cout << x << y << std::endl;
+	std::cout<< "X:" << x <<" Y:" <<y << std::endl;
 }

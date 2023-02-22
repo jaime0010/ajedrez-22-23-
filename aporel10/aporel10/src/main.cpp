@@ -81,37 +81,30 @@ void OnMouseClick(int button, int state, int x, int y)
 {
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		if (x > 208 && x < 251)
-		{
-			x = 1;
-			//glEnable(GL_TEXTURE_2D);         glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/peon-blanco.png").id);
-			//glDisable(GL_LIGHTING);
-			//glBegin(GL_POLYGON);
-		}
-			
-		 if (x > 252 && x < 294)x = 2;
-		 if (x > 295 && x < 337)x = 3;
-		 if (x > 338 && x < 379)x = 4;
-		 if (x > 380 && x < 419)x = 5;
-		 if (x > 420 && x < 464)x = 6;
-		 if (x > 465 && x < 504)x = 7;
-		 if (x > 505 && x < 549)x = 8;
+		 
+		 if (x > 252 && x <= 294)x = 2;
+		 if (x > 295 && x <= 337)x = 3;
+		 if (x > 338 && x <= 379)x = 4;
+		 if (x > 380 && x <= 419)x = 5;
+		 if (x > 420 && x <= 464)x = 6;
+		 if (x > 465 && x <= 504)x = 7;
+		 if (x > 505 && x <= 549)x = 8;
+		 if (x > 208 && x <= 251)x = 1;
 
-		if (y < 491 && y > 450)y = 1;
-		 if (y < 449 && y > 407)y = 2;
-		 if (y < 406 && y > 366)y = 3;
-		 if (y < 365 && y > 325)y = 4;
-		 if (y < 324 && y > 285)y = 5;
-		 if (y < 284 && y > 244)y = 6;
-		 if (y < 243 && y > 207)y = 7;
-		 if (y < 206 && y > 170)y = 8;
+		 if (y < 449 && y >= 407)y = 2;
+		 if (y < 406 && y >= 366)y = 3;
+		 if (y < 365 && y >= 325)y = 4;
+		 if (y < 324 && y >= 285)y = 5;
+		 if (y < 284 && y >= 244)y = 6;
+		 if (y < 243 && y >= 207)y = 7;
+		 if (y < 206 && y >= 170)y = 8;
+		 if (y < 491 && y >= 450)y = 1;
 		//store the x,y value where the click happened
 		
 		 if(x > 8 || y>8)
-			 std::cout << " CASILLA FUERA DE LIMITES " << std::endl;
+			 std::cout << " CASILLA FUERA DE LIMITES "<< std::endl;
 		else  
-			std::cout << x << " : " << y << std::endl;//pintamos las coordenadas x e y cuando pulsamos el boton izquierdo del raton
-		 tab.get_cor(x, y);
+			tab.get_cor(x, y);
 		
 
 		ETSIDI::playMusica("sonidos/disparo.mp3");

@@ -11,7 +11,7 @@
 class Tablero
 {
 public:
-	Pieza* tab[filas][columnas];
+	Pieza* tab[columnas][filas];
 	Tablero();
 	~Tablero();
 	void dibuja();
