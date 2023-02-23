@@ -7,8 +7,8 @@ void Peon::dibuja()
     
  
 	glEnable(GL_TEXTURE_2D);         
-    if(color==BLANCO)glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/peon-blancop.png").id);
-    else glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/peon-negrop.png").id);
+    if(color==BLANCO)glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/peonblanco.png").id);
+    else glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/peonnegro.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
     glTexCoord2d(0, 1); ; glVertex3f( - 0.5,  - 0.5, 0.01f);
@@ -18,4 +18,9 @@ void Peon::dibuja()
     //
     glEnd();
     //glEnable(GL_LIGHTING);
+}
+
+bool Peon::validarmovimientos()
+{
+    return false;
 }

@@ -3,6 +3,11 @@
 #include <iostream>
 #include "freeglut.h"
 #include "Peon.h"
+#include "Rey.h"
+#include "Reina.h"
+#include "Torre.h"
+#include "Alfil.h"
+#include "Caballo.h"
 
 #define filas 8
 #define columnas 8
