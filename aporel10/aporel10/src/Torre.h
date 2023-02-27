@@ -4,7 +4,7 @@
 class Torre :public Pieza
 {
 public:
-	Torre(Color c) :Pieza(c, PEON) {};
+	Torre(Color c) :Pieza(c, TORRE) {};
 	void dibuja();
 	bool validarmovimientos();
 

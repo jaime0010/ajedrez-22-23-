@@ -101,14 +101,16 @@ void OnMouseClick(int button, int state, int x, int y)
 		 if (y < 491 && y >= 450)y = 1;
 		//store the x,y value where the click happened
 		
-		 if (x > 8 || y > 8)
-		 {
+		 if (x > 8 || y > 8){
 			 std::cout << " CASILLA FUERA DE LIMITES " << std::endl;
 			 ETSIDI::playMusica("lib/sonidos/disparo.mp3");
 		 }
 		else  
 			tab.get_cor(x, y);
-		
+
+		if (tab.hay_pieza(x, y)){
+			 std::cout << "nos movemos a Y:" << y << " X:" << x << std::endl;
+		}
 
 		
 	}

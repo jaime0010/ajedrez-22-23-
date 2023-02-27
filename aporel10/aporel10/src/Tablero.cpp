@@ -18,11 +18,6 @@ Tablero::Tablero()
 	}
 	//creacion de las demas piezas
 	// caballo
-	/*
-	for (int i = 1; i <= 6; i + 5)
-	{
-		tab[0][i] = new Caballo(Pieza::BLANCO);
-	}*/
 	tab[0][1] = new Caballo(Pieza::BLANCO);
 	tab[0][6] = new Caballo(Pieza::BLANCO);
 	tab[7][1] = new Caballo(Pieza::NEGRO);
@@ -99,5 +94,26 @@ void Tablero::dibuja()
 
 void Tablero::get_cor(int x, int y)
 {
-	std::cout<< "X:" << x <<" Y:" <<y << std::endl;
+	std::cout<< "Y:" << y <<" X:" <<x << std::endl;
+	//hay_pieza(x, y);
+
+}
+
+bool Tablero::hay_pieza(int x, int y)
+{
+	if (tab[y - 1][x - 1]) {//se pone'-1' porque las piezas van de 0 a 7 y las coordenadas de 1 a 8
+		std::cout << "hay pieza " << std::endl;
+		quien_soy(tab[y - 1][x - 1]);
+		return (true);
+	}
+	else {
+		std::cout << "casilla libre " << std::endl;
+		return false;
+	}
+	
+}
+
+void Tablero::quien_soy(Pieza* tab)
+{
+	std::cout << "soy de tipo " << tab->pieza<<" y color "<<tab->color<<std::endl;
 }
