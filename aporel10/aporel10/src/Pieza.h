@@ -2,6 +2,7 @@
 #include "ETSIDI.h"
 #include "freeglut.h"
 
+class Tablero;
 class Pieza
 {
   public:

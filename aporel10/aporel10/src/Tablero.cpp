@@ -3,6 +3,7 @@
 Tablero::Tablero()
 {
 	
+
 	for (int i = 0; i< filas; i++)
 	{
 		for (int j = 0; j < columnas; j++)
@@ -99,5 +100,10 @@ void Tablero::dibuja()
 
 void Tablero::get_cor(int x, int y)
 {
-	std::cout<< "X:" << x <<" Y:" <<y << std::endl;
+	Vector2D * pos;
+	//std::cout<< "X:" << x <<" Y:" <<y << std::endl;
+	pos=new Vector2D(x, y);
+	std::cout << "X:" << pos->x << " Y:" << pos->y << std::endl;
 }
+
+

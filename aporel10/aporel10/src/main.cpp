@@ -108,7 +108,6 @@ void OnMouseClick(int button, int state, int x, int y)
 		 }
 		else  
 			tab.get_cor(x, y);
-		
 
 		
 	}
