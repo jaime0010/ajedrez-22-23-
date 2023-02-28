@@ -14,7 +14,6 @@ void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecl
 void OnMouseClick(int button, int state, int x, int y); //LLamada para la gestion del raton
 void resize(int width, int height); //LLamada para no maximizar pantalla
 
-
 int main(int argc, char* argv[])
 {
 	//Inicializar el gestor de ventanas GLUT
@@ -77,8 +76,10 @@ void OnTimer(int value)
 {
 	
 }
+
 void OnMouseClick(int button, int state, int x, int y)
 {
+	
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
 		 
@@ -99,18 +100,26 @@ void OnMouseClick(int button, int state, int x, int y)
 		 if (y < 243 && y >= 207)y = 7;
 		 if (y < 206 && y >= 170)y = 8;
 		 if (y < 491 && y >= 450)y = 1;
-		//store the x,y value where the click happened
+		
+
+		 if (tab.coger < 0) {                    //cogemos la posicion a la que nos queremos mover
+			 std::cout << "nos movemos a Y:" << y << " X:" << x << std::endl;
+			tab.coger *= -1;
+		 }
 		
 		 if (x > 8 || y > 8){
 			 std::cout << " CASILLA FUERA DE LIMITES " << std::endl;
 			 ETSIDI::playMusica("lib/sonidos/disparo.mp3");
+			 tab.coger = 1;
 		 }
-		else  
-			tab.get_cor(x, y);
-
-		if (tab.hay_pieza(x, y)){
-			 std::cout << "nos movemos a Y:" << y << " X:" << x << std::endl;
-		}
+		 else {
+			 tab.get_cor(x, y);
+			 
+		 }
+		 if (tab.hay_pieza(x, y)){
+			 tab.coger *= -1;
+		 }
+		
 
 		
 	}

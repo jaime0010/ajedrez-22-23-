@@ -16,6 +16,7 @@
 class Tablero
 {
 public:
+	int coger = 1;//se usará como una "maquina de estados para coger la posicion a la que nos queremos mover"
 	Pieza* tab[columnas][filas];
 	Tablero();
 	~Tablero();
