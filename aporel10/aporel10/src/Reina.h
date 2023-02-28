@@ -5,7 +5,7 @@ class Reina :public Pieza
 {
 
 public:
-	Reina(Color c) :Pieza(c, PEON) {};
+	Reina(Color c) :Pieza(c, REINA) {};
 	void dibuja();
 	bool validarmovimientos();
 

@@ -4,7 +4,7 @@
 class Caballo :public Pieza
 {
 public:
-	Caballo(Color c) :Pieza(c, PEON) {};
+	Caballo(Color c) :Pieza(c, CABALLO) {};
 	void dibuja();
 	bool validarmovimientos();
 };
