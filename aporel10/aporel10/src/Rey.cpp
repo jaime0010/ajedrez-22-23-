@@ -17,7 +17,8 @@ void Rey::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Rey::validarmovimientos()
+bool Rey::validar_mov(int, int)
 {
+    std::cout << "soy rey" << std::endl;
     return false;
 }

@@ -1,10 +1,10 @@
 #pragma once
 #include "Pieza.h"
-
+#include<iostream>
 class Caballo :public Pieza
 {
 public:
 	Caballo(Color c) :Pieza(c, CABALLO) {};
 	void dibuja();
-	bool validarmovimientos();
+	bool validar_mov(int, int);
 };

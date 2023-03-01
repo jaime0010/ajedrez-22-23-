@@ -92,17 +92,11 @@ void Tablero::dibuja()
 	
 }
 
-void Tablero::get_cor(int x, int y)
-{
-	std::cout<< "Y:" << y <<" X:" <<x << std::endl;
-	//hay_pieza(x, y);
 
-}
 
 bool Tablero::hay_pieza(int x, int y)
 {
 	if (tab[y - 1][x - 1]) {//se pone'-1' porque las piezas van de 0 a 7 y las coordenadas de 1 a 8
-		std::cout << "hay pieza " << std::endl;
 		quien_soy(tab[y - 1][x - 1]);
 		return (true);
 	}
@@ -116,4 +110,13 @@ bool Tablero::hay_pieza(int x, int y)
 void Tablero::quien_soy(Pieza* tab)
 {
 	std::cout << "soy de tipo " << tab->pieza<<" y color "<<tab->color<<std::endl;
+}
+
+void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
+{
+	std::cout << "origen:"<<x_org << " , " << y_org << "\n destino " << x_dest << " , " << y_dest << " , " << std::endl;
+	tab[y_org-1][x_org-1]->validar_mov(x_dest, y_dest);
+	tab[y_dest - 1][x_dest - 1] = tab[y_org - 1][x_org - 1];
+	tab[y_org - 1][x_org - 1] = nullptr;
+	Tablero::coger = 1;
 }

@@ -17,7 +17,8 @@ void Alfil::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Alfil::validarmovimientos()
+bool Alfil::validar_mov(int, int)
 {
-	return false;
+    std::cout << "soy alfil" << std::endl;
+    return false;
 }
