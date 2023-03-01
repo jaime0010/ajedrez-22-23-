@@ -17,6 +17,7 @@ class Tablero
 {
 public:
 	int coger = 1;//se usará como una "maquina de estados para coger la posicion a la que nos queremos mover"
+	int x_org=0, y_org=0;
 	Pieza* tab[columnas][filas];
 	Tablero();
 	~Tablero();
@@ -24,4 +25,5 @@ public:
 	void get_cor(int, int);
 	bool hay_pieza(int, int);
 	void quien_soy(Pieza*);
+	void coger_posiciones(int, int, int, int);
 };

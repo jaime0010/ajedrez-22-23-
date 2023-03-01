@@ -82,7 +82,7 @@ void OnMouseClick(int button, int state, int x, int y)
 	
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		 
+		
 		 if (x > 252 && x <= 294)x = 2;
 		 if (x > 295 && x <= 337)x = 3;
 		 if (x > 338 && x <= 379)x = 4;
@@ -105,6 +105,7 @@ void OnMouseClick(int button, int state, int x, int y)
 		 if (tab.coger < 0) {                    //cogemos la posicion a la que nos queremos mover
 			 std::cout << "nos movemos a Y:" << y << " X:" << x << std::endl;
 			tab.coger *= -1;
+			tab.coger_posiciones(tab.x_org, tab.y_org, x, y);
 		 }
 		
 		 if (x > 8 || y > 8){
@@ -118,6 +119,8 @@ void OnMouseClick(int button, int state, int x, int y)
 		 }
 		 if (tab.hay_pieza(x, y)){
 			 tab.coger *= -1;
+			 tab.x_org = x;
+			 tab.y_org = y;
 		 }
 		
 

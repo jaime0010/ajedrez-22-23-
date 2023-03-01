@@ -134,7 +134,6 @@
   <ItemGroup>
     <ClCompile Include="src\Alfil.cpp" />
     <ClCompile Include="src\Caballo.cpp" />
-    <ClCompile Include="src\estados_coger.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\Pieza.cpp" />
@@ -146,7 +145,6 @@
   <ItemGroup>
     <ClInclude Include="src\Alfil.h" />
     <ClInclude Include="src\Caballo.h" />
-    <ClInclude Include="src\estados_coger.h" />
     <ClInclude Include="src\Peon.h" />
     <ClInclude Include="src\Pieza.h" />
     <ClInclude Include="src\Reina.h" />

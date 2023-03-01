@@ -42,9 +42,6 @@
     <ClCompile Include="src\Caballo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\estados_coger.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Tablero.h">
@@ -69,9 +66,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\Caballo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\estados_coger.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
