@@ -17,7 +17,7 @@ void Reina::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Reina::validar_mov(int, int)
+bool Reina::validar_mov(int, int, int, int)
 {
     std::cout << "soy reina" << std::endl;
     return false;

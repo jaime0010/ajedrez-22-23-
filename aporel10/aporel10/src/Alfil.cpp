@@ -1,5 +1,6 @@
 #include "Alfil.h"
 
+
 void Alfil::dibuja()
 {
 
@@ -17,8 +18,12 @@ void Alfil::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Alfil::validar_mov(int, int)
+bool Alfil::validar_mov(int x_dest, int y_dest,int x_org,int y_org)
 {
     std::cout << "soy alfil" << std::endl;
+    if (abs(x_dest - x_org) == abs(y_dest - y_org)) {
+        std::cout << "Movimiento valido del Alfil" << std::endl;
+        return true;
+    }
     return false;
 }

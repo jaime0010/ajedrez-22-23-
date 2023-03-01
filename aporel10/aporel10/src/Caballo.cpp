@@ -17,7 +17,7 @@ void Caballo::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Caballo::validar_mov(int, int)
+bool Caballo::validar_mov(int, int, int, int)
 {
     std::cout << "soy caballo" << std::endl;
     return false;

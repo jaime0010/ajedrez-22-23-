@@ -17,7 +17,7 @@ void Torre::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Torre::validar_mov(int, int)
+bool Torre::validar_mov(int, int, int, int)
 {
     std::cout << "soy torre" << std::endl;
     

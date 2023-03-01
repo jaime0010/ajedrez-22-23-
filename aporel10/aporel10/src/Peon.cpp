@@ -20,7 +20,7 @@ void Peon::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Peon::validar_mov(int, int)
+bool Peon::validar_mov(int, int, int, int)
 {
     std::cout << "soy peon" << std::endl;
     return false;
