@@ -103,7 +103,6 @@ void OnMouseClick(int button, int state, int x, int y)
 		
 
 		 if (tab.coger < 0) {                    //cogemos la posicion a la que nos queremos mover
-			 std::cout << "nos movemos a Y:" << y << " X:" << x << std::endl;
 			tab.coger *= -1;
 			tab.coger_posiciones(tab.x_org, tab.y_org, x, y);
 		 }
@@ -113,10 +112,7 @@ void OnMouseClick(int button, int state, int x, int y)
 			 ETSIDI::playMusica("lib/sonidos/disparo.mp3");
 			 tab.coger = 1;
 		 }
-		 else {
-			 tab.get_cor(x, y);
-			 
-		 }
+		 
 		 if (tab.hay_pieza(x, y)){
 			 tab.coger *= -1;
 			 tab.x_org = x;

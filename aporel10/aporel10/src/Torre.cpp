@@ -20,6 +20,7 @@ void Torre::dibuja()
 bool Torre::validar_mov(int, int)
 {
     std::cout << "soy torre" << std::endl;
+    
     return false;
 }
 

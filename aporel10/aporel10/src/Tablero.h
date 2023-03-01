@@ -22,7 +22,6 @@ public:
 	Tablero();
 	~Tablero();
 	void dibuja();
-	void get_cor(int, int);
 	bool hay_pieza(int, int);
 	void quien_soy(Pieza*);
 	void coger_posiciones(int, int, int, int);
