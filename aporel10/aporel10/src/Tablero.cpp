@@ -116,5 +116,7 @@ void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 {
 	std::cout << "origen:"<<x_org << " , " << y_org << "\n destino " << x_dest << " , " << y_dest << " , " << std::endl;
 	tab[y_org-1][x_org-1]->validar_mov(x_dest, y_dest);
-	
+	tab[y_dest - 1][x_dest - 1] = tab[y_org - 1][x_org - 1];
+	tab[y_org - 1][x_org - 1] = nullptr;
+	Tablero::coger = 1;
 }
