@@ -18,7 +18,7 @@ class Pieza
 	  TipoPieza* getTipoPieza() { return &pieza; }; //no se si devuelve el tipo pieza aqui o la propia pieza
 	  Color* getColor() { return &color; };//igual pasa con el color no se si el color lo devuelve la clase pieza o luego el peon
 	  
-	  virtual bool validar_mov(int, int)=0;
+	  virtual bool validar_mov(int, int, int, int)=0;
 	  
 
 	  
