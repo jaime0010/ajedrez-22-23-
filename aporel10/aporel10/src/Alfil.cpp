@@ -17,8 +17,14 @@ void Alfil::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Alfil::validar_mov(int, int)
+bool Alfil::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
 {
     std::cout << "soy alfil" << std::endl;
-    return false;
+    //Comprueba movimiento en diagonal
+    if (abs(x_dest - x_orig) != abs(y_dest - y_orig)) {
+        std::cout << "movimiento no valido\n";
+        return false;
+    }
+    else
+        return true;
 }

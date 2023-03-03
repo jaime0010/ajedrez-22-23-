@@ -82,7 +82,7 @@ void OnMouseClick(int button, int state, int x, int y)
 	
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		
+		//x e y son las casillas clickadas por el raton
 		 if (x > 252 && x <= 294)x = 2;
 		 if (x > 295 && x <= 337)x = 3;
 		 if (x > 338 && x <= 379)x = 4;
@@ -101,10 +101,12 @@ void OnMouseClick(int button, int state, int x, int y)
 		 if (y < 206 && y >= 170)y = 8;
 		 if (y < 491 && y >= 450)y = 1;
 		
-
+		 
 		 if (tab.coger < 0) {                    //cogemos la posicion a la que nos queremos mover
 			tab.coger_posiciones(tab.x_org, tab.y_org, x, y);
 			tab.coger *= -1;
+			tab.turno *= -1;	//Cambia de turno una vez validado el movimiento
+			cout << "Turno = " << tab.turno << endl;
 		 }
 		
 		 if (x > 8 || y > 8){

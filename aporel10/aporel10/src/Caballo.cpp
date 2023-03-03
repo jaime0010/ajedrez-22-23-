@@ -17,8 +17,16 @@ void Caballo::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Caballo::validar_mov(int, int)
+bool Caballo::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
 {
     std::cout << "soy caballo" << std::endl;
-    return false;
+
+    //Comprueba movimiento en "L"
+    if ((abs(x_dest - x_orig) == 2 && abs(y_dest - y_orig)==1) || (abs(x_dest - x_orig) == 1 && abs(y_dest - y_orig) == 2)) 
+        return true;
+    
+    else {
+        std::cout << "movimiento no valido\n";
+        return false;
+    }
 }
