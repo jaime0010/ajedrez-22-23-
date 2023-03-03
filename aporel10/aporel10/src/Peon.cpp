@@ -24,7 +24,7 @@ bool Peon::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
 {   //FALTA MOVIMIENTO EN DIAGONAL, CUANDO HAGAMOS "COMER"
     std::cout << "soy peon" << std::endl;
     if (abs(x_orig - x_dest) == 0) {
-        if (color == 0 && (y_dest - y_orig == 1 || (y_dest - y_orig == 2) && (y_orig == 2)))  //movimiento recto de peones blancos
+        if (color == -1 && (y_dest - y_orig == 1 || (y_dest - y_orig == 2) && (y_orig == 2)))  //movimiento recto de peones blancos
             return true;
         else
             if (color == 1 && (y_dest - y_orig == -1 || (y_dest - y_orig == -2) && (y_orig == 7)))  //movimiento recto de peones negros

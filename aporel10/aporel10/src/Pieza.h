@@ -7,7 +7,7 @@ class Pieza
   public:
 	  //como le pasamos las coordenadas a piezas desde tablero, 1.creamos un objeto tablero o se lo pasamos como arguemnto de validarmovimientos.
 	  typedef enum { REY=0, PEON, ALFIL, REINA, CABALLO, TORRE } TipoPieza;
-	  typedef enum { BLANCO=0, NEGRO } Color;
+	  typedef enum { BLANCO=-1, NEGRO=1 } Color;
 	  TipoPieza pieza;// ya podemos acceder a cada tipo de las piezas
 	  Color color;// ya podemos acceder al color de ellas, o blanco o negro
 	 
