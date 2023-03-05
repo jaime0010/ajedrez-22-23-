@@ -149,20 +149,20 @@ void Tablero::trayectoria(Pieza* tabl, int x_org, int y_org, int x_dest, int y_d
 			//Establece hacia donde se mueve el alfil, 1=arriba o derecha; -1=abajo o izq
 			int dx = (x_dest > x_org) ? 1 : -1;
 			int dy = (y_dest > y_org) ? 1 : -1;
-
-			int x = x_org + dx;
-			int y = y_org + dy;
+			//Empieza en el origen
+			int x = x_org ;
+			int y = y_org ;
 
 			//Recorre toda la trayectoria diagonal
 			while (x != x_dest && y != y_dest) {
+				//avanza a la siguiente casilla
+				x += dx;
+				y += dy;
 				//Si los tipos de pieza de las casillas son 0-5; hay pieza, no_valid = 1
 				if (quien_soy(tab[y - 1][x - 1]) < 6 && quien_soy(tab[y - 1][x - 1]) >= 0) {
 					// Hay una pieza en el camino
 					no_valid = 1;
 				}
-				//avanza a la siguiente casilla
-				x += dx;
-				y += dy;
 			}
 			//Si no ha encontrado piezas, efectua el movimiento
 			if(no_valid!=1)
