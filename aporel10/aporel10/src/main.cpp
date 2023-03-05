@@ -83,46 +83,40 @@ void OnMouseClick(int button, int state, int x, int y)
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
 		//x e y son las casillas clickadas por el raton
-		 if (x > 252 && x <= 294)x = 2;
-		 if (x > 295 && x <= 337)x = 3;
-		 if (x > 338 && x <= 379)x = 4;
-		 if (x > 380 && x <= 419)x = 5;
-		 if (x > 420 && x <= 464)x = 6;
-		 if (x > 465 && x <= 504)x = 7;
-		 if (x > 505 && x <= 549)x = 8;
-		 if (x > 208 && x <= 251)x = 1;
+		 if (x > 252 && x <= 294)x = 1;
+		 if (x > 295 && x <= 337)x = 2;
+		 if (x > 338 && x <= 379)x = 3;
+		 if (x > 380 && x <= 419)x = 4;
+		 if (x > 420 && x <= 464)x = 5;
+		 if (x > 465 && x <= 504)x = 6;
+		 if (x > 505 && x <= 549)x = 7;
+		 if (x > 208 && x <= 251)x = 0;
 
-		 if (y < 449 && y >= 407)y = 2;
-		 if (y < 406 && y >= 366)y = 3;
-		 if (y < 365 && y >= 325)y = 4;
-		 if (y < 324 && y >= 285)y = 5;
-		 if (y < 284 && y >= 244)y = 6;
-		 if (y < 243 && y >= 207)y = 7;
-		 if (y < 206 && y >= 170)y = 8;
-		 if (y < 491 && y >= 450)y = 1;
+		 if (y < 449 && y >= 407)y = 1;
+		 if (y < 406 && y >= 366)y = 2;
+		 if (y < 365 && y >= 325)y = 3;
+		 if (y < 324 && y >= 285)y = 4;
+		 if (y < 284 && y >= 244)y = 5;
+		 if (y < 243 && y >= 207)y = 6;
+		 if (y < 206 && y >= 170)y = 7;
+		 if (y < 491 && y >= 450)y = 0;
 		
 		 
 		 if (tab.coger < 0) {                    //cogemos la posicion a la que nos queremos mover
 			tab.coger_posiciones(tab.x_org, tab.y_org, x, y);
 			tab.coger *= -1;
-		 }
-		
+		 }		
 		 if (x > 8 || y > 8){
 			 std::cout << " CASILLA FUERA DE LIMITES " << std::endl;
 			 ETSIDI::playMusica("lib/sonidos/disparo.mp3");
 			 tab.coger = 1;
-		 }
-		 
+		 }		 
 		 if (tab.hay_pieza(x, y)){
 			 tab.coger *= -1;
 			 tab.x_org = x;
 			 tab.y_org = y;
-		 }
-		
-
-		
-	}
-	
+		 }	
+	}	
 }
 
 void resize(int width, int height)

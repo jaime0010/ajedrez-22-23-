@@ -15,7 +15,7 @@
 
 class Tablero
 {
-public:
+ public:
 	int coger = 1;	//se usará como una "maquina de estados para coger la posicion a la que nos queremos mover"
 					//1 = esperando a casilla de destino; -1 = esperando a casilla de origen
 	int x_org=0, y_org=0;
