@@ -105,7 +105,6 @@ void OnMouseClick(int button, int state, int x, int y)
 		 if (tab.coger < 0) {                    //cogemos la posicion a la que nos queremos mover
 			tab.coger_posiciones(tab.x_org, tab.y_org, x, y);
 			tab.coger *= -1;
-			tab.turno *= -1;	//Cambia de turno una vez validado el movimiento
 			cout << "Turno = " << tab.turno << endl;
 		 }
 		

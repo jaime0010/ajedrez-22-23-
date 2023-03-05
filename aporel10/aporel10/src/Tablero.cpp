@@ -120,5 +120,6 @@ void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		tab[y_dest - 1][x_dest - 1] = tab[y_org - 1][x_org - 1];	//actualizamos la matriz de piezas
 		tab[y_org - 1][x_org - 1] = nullptr;						//eliminamos la anterior posicion de la matriz de piezas
 		Tablero::coger = 1;
+		turno *= -1;	//Cambia de turno una vez validado el movimiento
 	}
 }
