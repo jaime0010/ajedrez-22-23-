@@ -103,8 +103,9 @@ void OnMouseClick(int button, int state, int x, int y)
 		
 		 
 		 if (tab.coger < 0) {                    //cogemos la posicion a la que nos queremos mover
-			tab.coger_posiciones(tab.x_org, tab.y_org, x, y);
-			tab.coger *= -1;
+			//tab.coger_posiciones(tab.x_org, tab.y_org, x, y);
+			tab.trayectoria(tab.tab[tab.x_org][tab.y_org], tab.x_org, tab.y_org, x, y);
+			tab.coger = 1;
 			cout << "Turno = " << tab.turno << endl;
 		 }
 		

@@ -106,9 +106,15 @@ bool Tablero::hay_pieza(int x, int y)
 	}
 }
 
-void Tablero::quien_soy(Pieza* tab)
+int Tablero::quien_soy(Pieza* tab)
 {
-	std::cout << "soy de tipo " << tab->pieza<<" y color "<<tab->color<<std::endl;
+	//Devuelve el tipo de pieza seleccionada
+	if (tab != nullptr) {
+		int tipo = tab->pieza;
+		std::cout << "soy de tipo " << tab->pieza << " y color " << tab->color << std::endl;
+		return tipo;
+	}
+	else return 7;		//Variable superior a 6 para indicar nullptr como int
 }
 
 void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
@@ -123,3 +129,63 @@ void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		turno *= -1;	//Cambia de turno una vez validado el movimiento
 	}
 }
+
+void Tablero::trayectoria(Pieza* tabl, int x_org, int y_org, int x_dest, int y_dest) {
+	int no_valid = 0;	//0=NO hay piezas en la trayectoria; 1=SI hay piezas en medio
+	int tipo = quien_soy(tab[y_org - 1][x_org - 1]);
+
+	switch (tipo) {
+			std::cout << "ENTRO NE FUNCION22222";
+
+		case 0:		//REY
+			coger_posiciones(x_org, y_org, x_dest, y_dest);
+			break;
+
+		case 1:		//PEON
+			coger_posiciones(x_org, y_org, x_dest, y_dest);
+			break;
+		case 2:		//ALFIL
+		{
+			//Establece hacia donde se mueve el alfil, 1=arriba o derecha; -1=abajo o izq
+			int dx = (x_dest > x_org) ? 1 : -1;
+			int dy = (y_dest > y_org) ? 1 : -1;
+
+			int x = x_org + dx;
+			int y = y_org + dy;
+
+			//Recorre toda la trayectoria diagonal
+			while (x != x_dest && y != y_dest) {
+				//Si los tipos de pieza de las casillas son 0-5; hay pieza, no_valid = 1
+				if (quien_soy(tab[y - 1][x - 1]) < 6 && quien_soy(tab[y - 1][x - 1]) >= 0) {
+					// Hay una pieza en el camino
+					no_valid = 1;
+				}
+				//avanza a la siguiente casilla
+				x += dx;
+				y += dy;
+			}
+			//Si no ha encontrado piezas, efectua el movimiento
+			if(no_valid!=1)
+				coger_posiciones(x_org, y_org, x_dest, y_dest);
+
+		}
+			break;
+		case 3:		//REINA
+			coger_posiciones(x_org, y_org, x_dest, y_dest);
+			break;
+		case 4:		//CABALLO
+		{
+			
+			coger_posiciones(x_org, y_org, x_dest, y_dest);
+		}
+			break;
+		case 5:		//TORRE
+			coger_posiciones(x_org, y_org, x_dest, y_dest);
+			break;
+	}		
+}
+	
+
+	
+	
+

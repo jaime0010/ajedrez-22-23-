@@ -25,6 +25,7 @@ public:
 	~Tablero();
 	void dibuja();
 	bool hay_pieza(int, int);
-	void quien_soy(Pieza*);
+	int quien_soy(Pieza*);
 	void coger_posiciones(int, int, int, int);
+	void trayectoria(Pieza*, int, int, int, int);
 };
