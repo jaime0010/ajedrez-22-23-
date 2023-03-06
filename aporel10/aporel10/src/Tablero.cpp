@@ -122,3 +122,132 @@ void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		Tablero::coger = 1;
 	}
 }
+<<<<<<< Updated upstream
+=======
+
+void Tablero::trayectoria(Pieza* tabl, int x_org, int y_org, int x_dest, int y_dest) {
+	int no_valid = 0;	//0=NO hay piezas en la trayectoria; 1=SI hay piezas en medio
+	int tipo = quien_soy(tab[y_org][x_org]);
+	
+	switch (tipo) {
+			std::cout << "ENTRO NE FUNCION22222";
+
+		case 0:	// REY
+		{
+			coger_posiciones(x_org, y_org, x_dest, y_dest);
+		}
+		break;
+
+		case 1:		//PEON
+		{
+			coger_posiciones(x_org, y_org, x_dest, y_dest);
+		}
+			break;
+		case 2:		//ALFIL
+		{
+			//Establece hacia donde se mueve el alfil, 1=arriba o derecha; -1=abajo o izq
+			int dx = (x_dest > x_org) ? 1 : -1;
+			int dy = (y_dest > y_org) ? 1 : -1;
+			//Empieza en el origen
+			int x = x_org ;
+			int y = y_org ;
+
+			//Recorre toda la trayectoria diagonal
+			while (x != x_dest && y != y_dest) {
+				//avanza a la siguiente casilla
+				x += dx;
+				y += dy;
+				//Si los tipos de pieza de las casillas son 0-5; hay pieza, no_valid = 1
+				if (quien_soy(tab[y][x]) < 6 && quien_soy(tab[y][x]) >= 0) {
+					// Hay una pieza en el camino
+					no_valid = 1;
+				}
+			}
+			//Si no ha encontrado piezas, efectua el movimiento
+			if(no_valid!=1)
+				coger_posiciones(x_org, y_org, x_dest, y_dest);
+
+		}
+			break;
+		case 3:		//REINA
+			coger_posiciones(x_org, y_org, x_dest, y_dest);
+			break;
+		case 4:		//CABALLO
+		{
+			
+			coger_posiciones(x_org, y_org, x_dest, y_dest);
+		}
+			break;
+		case 5:		//TORRE
+
+			// Hacia donde se mueve la torre
+			int dx = (x_dest - x_org > 0) ? 1 : -1; //si la torre se mueve hacía arriba 1 => else -1
+			int dy = (y_dest - y_org > 0) ? 1 : -1; //si la torre se mueve hacía dcha 1 => else -1
+
+			//Empieza en el origen
+			int x = x_org;
+			int y = y_org;
+
+			if (abs(x_dest - x_org) == 0) // si x_dest-x_orig es distinto de 0 => desplazamiento en eje y
+			{
+				if (dy == 1) // Movimiento torre hacia arriba 
+				{
+					while (y != y_dest)
+					{
+						y += dy; //se suma para avanzar hacia la dcha
+						if (quien_soy(tab[y][x]) < 6 && quien_soy(tab[y][x]) >= 0)
+						{
+							// Hay una pieza en el camino
+							no_valid = 1;
+						}
+					}
+				}
+				else // Movimiento torre hacia abajo
+				{
+					while (y != y_dest)
+					{
+						y += dy; // se resta para avanzar hacia la izq
+						if (quien_soy(tab[y][x]) < 6 && quien_soy(tab[y][x]) >= 0)
+						{
+							no_valid = 1;
+						}
+					}
+				}
+			}
+			else // Desplazaiento en el eje x
+			{
+				if (dx == 1) // Movimiento de la torre hacia dcha
+				{
+					while (x != x_dest)
+					{
+						x += dx;
+						if (quien_soy(tab[y][x]) < 6 && quien_soy(tab[y][x]) >= 0)
+						{
+							no_valid = 1;
+						}
+					}
+				}
+				else // Movimiento de torre hacía izq
+				{
+					while (x != x_dest)
+					{
+						x += dx;
+						if (quien_soy(tab[y][x]) < 6 && quien_soy(tab[y][x]) >= 0)
+						{
+							no_valid = 1;
+						}
+					}
+				}
+			}
+
+			//Si no ha encontrado piezas, efectua el movimiento
+			if (no_valid != 1)
+				coger_posiciones(x_org, y_org, x_dest, y_dest);
+
+		
+
+
+			break;
+	}		
+}
+>>>>>>> Stashed changes
