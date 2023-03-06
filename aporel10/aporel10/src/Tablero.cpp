@@ -131,11 +131,10 @@ void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 	}
 }
 
-void Tablero::trayectoria(Pieza* tabl, int x_org, int y_org, int x_dest, int y_dest) {
+void Tablero::trayectoria(int x_org, int y_org, int x_dest, int y_dest) {
 	int no_valid = 0;	//0=NO hay piezas en la trayectoria; 1=SI hay piezas en medio
-	int tipo = quien_soy(tab[y_org][x_org]);
 	
-	switch (tipo) {
+	switch (tab[y_org][x_org]->pieza) {
 
 
 		case 0:		//REY
@@ -161,16 +160,20 @@ void Tablero::trayectoria(Pieza* tabl, int x_org, int y_org, int x_dest, int y_d
 				//avanza a la siguiente casilla
 				x += dx;
 				y += dy;
-				//Si los tipos de pieza de las casillas son 0-5; hay pieza
-				if (quien_soy(tab[y][x]) < 6 && quien_soy(tab[y][x]) >= 0) {
+
+				//Si la casilla que analiza no apunta a puntero nulo; hay pieza
+				if (tab[y][x]!=nullptr) {
+
 					//Si la pieza en la trayectoria es en la casilla destino y es de otro color sale del bucle
 					if (x == x_dest && y == y_dest && tab[y_dest][x_dest]->color != tab[y_org][x_org]->color)
 						break;
+
 					else
 					// Hay una pieza en el camino
 					no_valid = 1;
 				}
 			}
+
 			//Si no ha encontrado piezas, o puede comer, efectua el movimiento
 			if(no_valid!=1)
 				coger_posiciones(x_org, y_org, x_dest, y_dest);

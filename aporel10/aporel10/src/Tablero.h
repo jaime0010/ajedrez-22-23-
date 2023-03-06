@@ -27,5 +27,5 @@ public:
 	bool hay_pieza(int, int);
 	int quien_soy(Pieza*);
 	void coger_posiciones(int, int, int, int);
-	void trayectoria(Pieza*, int, int, int, int);
+	void trayectoria(int, int, int, int);
 };
