@@ -75,6 +75,7 @@ void Tablero::dibuja()
 			glEnable(GL_LIGHTING);
 		}
 	}
+	
 	for (int fila = 0; fila < filas; fila++)
 	{
 		for (int columna = 0; columna < columnas; columna++)
@@ -133,7 +134,7 @@ void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 void Tablero::trayectoria(Pieza* tabl, int x_org, int y_org, int x_dest, int y_dest) {
 	int no_valid = 0;	//0=NO hay piezas en la trayectoria; 1=SI hay piezas en medio
 	int tipo = quien_soy(tab[y_org][x_org]);
-
+	
 	switch (tipo) {
 			std::cout << "ENTRO NE FUNCION22222";
 
@@ -142,7 +143,9 @@ void Tablero::trayectoria(Pieza* tabl, int x_org, int y_org, int x_dest, int y_d
 			break;
 
 		case 1:		//PEON
+		{
 			coger_posiciones(x_org, y_org, x_dest, y_dest);
+		}
 			break;
 		case 2:		//ALFIL
 		{
@@ -184,8 +187,3 @@ void Tablero::trayectoria(Pieza* tabl, int x_org, int y_org, int x_dest, int y_d
 			break;
 	}		
 }
-	
-
-	
-	
-
