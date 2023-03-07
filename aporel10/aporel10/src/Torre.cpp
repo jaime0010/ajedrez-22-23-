@@ -16,6 +16,18 @@ void Torre::dibuja()
     glEnd();
     //glEnable(GL_LIGHTING);
 }
+bool Torre::validar_mov(Vector2D*posini, Vector2D*posfinal)
+{
+    std::cout << "soy torre" << std::endl;
+    if (posfinal->x != posini->x && posfinal->y != posini->y) { //Si no es en linea recta
+        std::cout << "movimiento no valido\n";
+        return false;   //Devuelve movimiento NO valido
+    }
+    else
+        return true;    //Devuelve movimiento valido
+}
+/*
+
 
 bool Torre::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
 {
@@ -28,3 +40,4 @@ bool Torre::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
         return true;    //Devuelve movimiento valido
 }
 
+*/

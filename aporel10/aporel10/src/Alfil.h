@@ -7,8 +7,8 @@ public:
 
 	Alfil(Color c) :Pieza(c, ALFIL) {};
 	void dibuja();
-	bool validar_mov(int, int, int, int);
+	//bool validar_mov(int, int, int, int);
 
-
+	bool validar_mov(Vector2D*, Vector2D*);
 
 };

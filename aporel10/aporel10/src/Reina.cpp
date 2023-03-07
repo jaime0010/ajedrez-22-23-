@@ -16,7 +16,19 @@ void Reina::dibuja()
     glEnd();
     //glEnable(GL_LIGHTING);
 }
+bool Reina::validar_mov(Vector2D* posini, Vector2D* posfinal)
+{
+    std::cout << "soy reina" << std::endl;
 
+    if ((abs(posfinal->x - posini->x) == abs(posfinal->y - posini->y)) || (posfinal->x == posini->x || posfinal->y == posini->y))  //Comprueba linea recta y diagonal
+        return true;
+
+    else {
+        std::cout << "movimiento no valido\n";
+        return false;
+    }
+}
+/*
 bool Reina::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
 {
     std::cout << "soy reina" << std::endl;
@@ -29,3 +41,4 @@ bool Reina::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
         return false;
     }
 }
+*/

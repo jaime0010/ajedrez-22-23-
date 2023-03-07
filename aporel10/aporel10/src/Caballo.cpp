@@ -16,7 +16,20 @@ void Caballo::dibuja()
     glEnd();
     //glEnable(GL_LIGHTING);
 }
+bool Caballo::validar_mov(Vector2D* posini, Vector2D* posfinal)
+{
+    std::cout << "soy caballo" << std::endl;
 
+    //Comprueba movimiento en "L"
+    if ((abs(posfinal->x - posini->x) == 2 && abs(posfinal->y - posini->y) == 1) || (abs(posfinal->x - posini->x) == 1 && abs(posfinal->y - posini->y) == 2))
+        return true;
+
+    else {
+        std::cout << "movimiento no valido\n";
+        return false;
+    }
+}
+/*
 bool Caballo::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
 {
     std::cout << "soy caballo" << std::endl;
@@ -30,3 +43,4 @@ bool Caballo::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
         return false;
     }
 }
+*/

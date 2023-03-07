@@ -41,7 +41,6 @@ Tablero::Tablero()
 
 
 
-
 }
 
 Tablero::~Tablero()
@@ -101,6 +100,7 @@ bool Tablero::hay_pieza(int x, int y)
 		return (true);
 	}
 	else {
+		//std::cout << "origen:" << pos_origen->x << " , " << pos_origen->y << "\n destino " << pos_final->x << " , " << pos_final->y << " , " << std::endl;
 		std::cout << "casilla libre " << std::endl;
 		return false;
 	}
@@ -113,9 +113,11 @@ void Tablero::quien_soy(Pieza* tab)
 
 void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 {
-	std::cout << "origen:"<<x_org << " , " << y_org << "\n destino " << x_dest << " , " << y_dest << " , " << std::endl;
-	if ((tab[y_org - 1][x_org - 1]->color==turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
-		&& (tab[y_org - 1][x_org - 1]->validar_mov(x_dest, y_dest, x_org, y_org)))
+	pos_origen = new Vector2D(x_org, y_org);
+	pos_final = new Vector2D(x_dest, y_dest);
+	std::cout << "origen:"<<pos_origen->x << " , " << pos_origen->y << "\n destino " << pos_final->x << " , " << pos_final->y << " , " << std::endl;
+	if ((tab[y_org - 1][x_org - 1]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
+		&& (tab[y_org - 1][x_org - 1]->validar_mov(pos_final, pos_origen)));
 	{
 		tab[y_dest - 1][x_dest - 1] = tab[y_org - 1][x_org - 1];	//actualizamos la matriz de piezas
 		tab[y_org - 1][x_org - 1] = nullptr;						//eliminamos la anterior posicion de la matriz de piezas
