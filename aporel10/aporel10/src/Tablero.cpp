@@ -38,8 +38,9 @@ Tablero::Tablero()
 	tab[0][5] = new Alfil(Pieza::BLANCO);
 	tab[7][2] = new Alfil(Pieza::NEGRO);
 	tab[7][5] = new Alfil(Pieza::NEGRO);
-
-
+	
+	pos_origen = new Vector2D(0, 0);
+	pos_final = new Vector2D(0, 0);
 
 }
 
@@ -113,11 +114,15 @@ void Tablero::quien_soy(Pieza* tab)
 
 void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 {
-	pos_origen = new Vector2D(x_org, y_org);
-	pos_final = new Vector2D(x_dest, y_dest);
+	pos_origen->x = x_org;
+	pos_origen->y = y_org;
+
+	pos_final->y = y_dest;
+	pos_final->x = x_dest;
+
 	std::cout << "origen:"<<pos_origen->x << " , " << pos_origen->y << "\n destino " << pos_final->x << " , " << pos_final->y << " , " << std::endl;
 	if ((tab[y_org - 1][x_org - 1]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
-		&& (tab[y_org - 1][x_org - 1]->validar_mov(pos_final, pos_origen)));
+		&& (tab[y_org - 1][x_org - 1]->validar_mov(pos_final, pos_origen)))
 	{
 		tab[y_dest - 1][x_dest - 1] = tab[y_org - 1][x_org - 1];	//actualizamos la matriz de piezas
 		tab[y_org - 1][x_org - 1] = nullptr;						//eliminamos la anterior posicion de la matriz de piezas

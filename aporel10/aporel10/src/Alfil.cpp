@@ -17,7 +17,7 @@ void Alfil::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Alfil::validar_mov(Vector2D*posini, Vector2D*posfinal)
+bool Alfil::validar_mov(Vector2D*posfinal, Vector2D*posini)
 {
     
     std::cout << "soy alfil" << std::endl;

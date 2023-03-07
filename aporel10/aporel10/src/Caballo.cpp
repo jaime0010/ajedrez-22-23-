@@ -16,7 +16,7 @@ void Caballo::dibuja()
     glEnd();
     //glEnable(GL_LIGHTING);
 }
-bool Caballo::validar_mov(Vector2D* posini, Vector2D* posfinal)
+bool Caballo::validar_mov(Vector2D* posfinal, Vector2D* posini)
 {
     std::cout << "soy caballo" << std::endl;
 
