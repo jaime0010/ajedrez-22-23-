@@ -20,8 +20,37 @@ void Peon::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Peon::validar_mov(int, int, int, int)
+/*
+bool Peon::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
+{   //FALTA MOVIMIENTO EN DIAGONAL, CUANDO HAGAMOS "COMER"
+    std::cout << "soy peon" << std::endl;
+    if (abs(x_orig - x_dest) == 0) {
+        if (color == -1 && (y_dest - y_orig == 1 || (y_dest - y_orig == 2) && (y_orig == 2)))  //movimiento recto de peones blancos
+            return true;
+        else
+            if (color == 1 && (y_dest - y_orig == -1 || (y_dest - y_orig == -2) && (y_orig == 7)))  //movimiento recto de peones negros
+                return true;
+            else return false;
+    }
+    else {
+        std::cout << "movimiento no valido\n";
+        return false;
+    }
+}
+*/
+bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen)
 {
     std::cout << "soy peon" << std::endl;
-    return false;
+    if (abs(pos_origen->x - pos_final->x) == 0) {
+        if (color == -1 && (pos_final->y - pos_origen->y == 1 || (pos_final->y - pos_origen->y == 2) && (pos_origen->y == 2)))  //movimiento recto de peones blancos
+            return true;
+        else
+            if (color == 1 && (pos_final->y - pos_origen->y == -1 || (pos_final->y - pos_origen->y == -2) && (pos_origen->y == 7)))  //movimiento recto de peones negros
+                return true;
+            else return false;
+    }
+    else {
+        std::cout << "movimiento no valido\n";
+        return false;
+    }
 }
