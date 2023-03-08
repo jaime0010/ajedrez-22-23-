@@ -10,6 +10,6 @@ public:
 		Peon(Color c) :Pieza(c, PEON) {};
 		void dibuja();
 		//bool validar_mov(int, int, int, int);
-		bool validar_mov(Vector2D*, Vector2D*);
+		bool validar_mov(Vector2D*, Vector2D*,Tablero&);
 		
 };

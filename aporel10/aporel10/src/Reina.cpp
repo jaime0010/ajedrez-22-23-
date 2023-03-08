@@ -16,7 +16,7 @@ void Reina::dibuja()
     glEnd();
     //glEnable(GL_LIGHTING);
 }
-bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini)
+bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini,Tablero& tablero)
 {
     std::cout << "soy reina" << std::endl;
 

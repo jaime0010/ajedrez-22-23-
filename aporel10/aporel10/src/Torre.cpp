@@ -16,7 +16,7 @@ void Torre::dibuja()
     glEnd();
     //glEnable(GL_LIGHTING);
 }
-bool Torre::validar_mov(Vector2D*posfinal, Vector2D*posini)
+bool Torre::validar_mov(Vector2D*posfinal, Vector2D*posini,Tablero& tablero)
 {
     std::cout << "soy torre" << std::endl;
     if (posfinal->x != posini->x && posfinal->y != posini->y) { //Si no es en linea recta

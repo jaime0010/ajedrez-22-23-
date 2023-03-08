@@ -1,5 +1,6 @@
 
 #include "Peon.h"
+#include"Tablero.h"
 
 void Peon::dibuja()
 {
@@ -38,7 +39,7 @@ bool Peon::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
     }
 }
 */
-bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen)
+bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen,Tablero &tablero)
 {
     std::cout << "soy peon" << std::endl;
     if (abs(pos_origen->x - pos_final->x) == 0) {

@@ -1,4 +1,5 @@
 #include "Caballo.h"
+#include"Tablero.h"
 
 void Caballo::dibuja()
 {
@@ -16,7 +17,7 @@ void Caballo::dibuja()
     glEnd();
     //glEnable(GL_LIGHTING);
 }
-bool Caballo::validar_mov(Vector2D* posfinal, Vector2D* posini)
+bool Caballo::validar_mov(Vector2D* posfinal, Vector2D* posini,Tablero &tablero)
 {
     std::cout << "soy caballo" << std::endl;
 

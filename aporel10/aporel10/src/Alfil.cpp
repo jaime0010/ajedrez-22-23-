@@ -1,4 +1,5 @@
 #include "Alfil.h"
+#include"Tablero.h"
 
 void Alfil::dibuja()
 {
@@ -17,7 +18,7 @@ void Alfil::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Alfil::validar_mov(Vector2D*posfinal, Vector2D*posini)
+bool Alfil::validar_mov(Vector2D*posfinal, Vector2D*posini,Tablero &tablero)
 {
     
     std::cout << "soy alfil" << std::endl;
