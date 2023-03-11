@@ -43,10 +43,10 @@ bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen,Tablero &tabler
 {
     std::cout << "soy peon" << std::endl;
     if (abs(pos_origen->x - pos_final->x) == 0) {
-        if (color == -1 && (pos_final->y - pos_origen->y == 1 || (pos_final->y - pos_origen->y == 2) && (pos_origen->y == 2)))  //movimiento recto de peones blancos
+        if (color == -1 && (pos_final->y - pos_origen->y == 1 || (pos_final->y - pos_origen->y == 2) && (pos_origen->y == 1)))  //movimiento recto de peones blancos
             return true;
         else
-            if (color == 1 && (pos_final->y - pos_origen->y == -1 || (pos_final->y - pos_origen->y == -2) && (pos_origen->y == 7)))  //movimiento recto de peones negros
+            if (color == 1 && (pos_final->y - pos_origen->y == -1 || (pos_final->y - pos_origen->y == -2) && (pos_origen->y == 6)))  //movimiento recto de peones negros
                 return true;
             else return false;
     }

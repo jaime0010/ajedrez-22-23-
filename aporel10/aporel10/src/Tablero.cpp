@@ -96,8 +96,8 @@ void Tablero::dibuja()
 
 bool Tablero::hay_pieza(int x, int y)
 {
-	if (tab[y - 1][x - 1]) {//se pone'-1' porque las piezas van de 0 a 7 y las coordenadas de 1 a 8
-		quien_soy(tab[y - 1][x - 1]);	
+	if (tab[y][x]) {//se pone'-1' porque las piezas van de 0 a 7 y las coordenadas de 1 a 8
+		quien_soy(tab[y][x]);	
 		return (true);
 	}
 	else {
@@ -120,12 +120,12 @@ void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 	pos_final->y = y_dest;
 	pos_final->x = x_dest;
 
-	std::cout << "origen:"<<pos_origen->x << " , " << pos_origen->y << "\n destino " << pos_final->x << " , " << pos_final->y << " , " << std::endl;
-	if ((tab[y_org - 1][x_org - 1]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
-		&& (tab[y_org - 1][x_org - 1]->validar_mov(pos_final, pos_origen,*this)))
+	std::cout << "origen:"<<pos_origen->x+1 << " , " << pos_origen->y+1 << "\n destino " << pos_final->x+1 << " , " << pos_final->y+1 << " , " << std::endl;
+	if ((tab[y_org][x_org]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
+		&& (tab[y_org][x_org ]->validar_mov(pos_final, pos_origen,*this)))
 	{
-		tab[y_dest - 1][x_dest - 1] = tab[y_org - 1][x_org - 1];	//actualizamos la matriz de piezas
-		tab[y_org - 1][x_org - 1] = nullptr;						//eliminamos la anterior posicion de la matriz de piezas
+		tab[y_dest ][x_dest ] = tab[y_org ][x_org ];	//actualizamos la matriz de piezas
+		tab[y_org ][x_org ] = nullptr;						//eliminamos la anterior posicion de la matriz de piezas
 		Tablero::coger = 1;
 	}
 }
