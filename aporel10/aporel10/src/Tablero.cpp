@@ -112,7 +112,7 @@ void Tablero::quien_soy(Pieza* tab)
 	std::cout << "soy de tipo " << tab->pieza<<" y color "<<tab->color<<std::endl;
 }
 
-void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
+bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 {
 	pos_origen->x = x_org;
 	pos_origen->y = y_org;
@@ -127,5 +127,7 @@ void Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		tab[y_dest ][x_dest ] = tab[y_org ][x_org ];	//actualizamos la matriz de piezas
 		tab[y_org ][x_org ] = nullptr;						//eliminamos la anterior posicion de la matriz de piezas
 		Tablero::coger = 1;
+		return true;
 	}
+	return false;
 }
