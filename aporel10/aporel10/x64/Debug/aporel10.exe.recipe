@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< Updated upstream
       <FullPath>C:\Users\felip\Desktop\aporel10\bin\aporel10.exe</FullPath>
+=======
+      <FullPath>D:\Visual Strudio proyectos\Ajedrez 2022-2023\ajedrez-22-23-\aporel10\bin\aporel10.exe</FullPath>
+>>>>>>> Stashed changes
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
