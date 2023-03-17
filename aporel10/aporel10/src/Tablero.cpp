@@ -120,6 +120,8 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 	pos_final->y = y_dest;
 	pos_final->x = x_dest;
 
+	if (x_org == x_dest && y_org == y_dest)
+		return false;
 	std::cout << "origen:"<<pos_origen->x+1 << " , " << pos_origen->y+1 << "\n destino " << pos_final->x+1 << " , " << pos_final->y+1 << " , " << std::endl;
 	if ((tab[y_org][x_org]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
 		&& (tab[y_org][x_org ]->validar_mov(pos_final, pos_origen,*this)))
