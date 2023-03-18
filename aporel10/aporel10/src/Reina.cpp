@@ -26,29 +26,105 @@ bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
     //bool primer_mov = true;
 
     //Posición inicial de la reina
-    
+
 
 
     //Movimiento de la reina a la derecha 
     if (posfinal->x > posini->x && posini->y == posfinal->y)
     {
-        //Se recorren todas las casillas en el eje x, empezando por la posición inicial de la reina
-        for (int i = posini->x; i < posfinal->x; i++)
 
-            if (tablero.tab[posini->y][i] != nullptr) //Si en la casilla destino hay pieza 
-            {
-                //Si la reina encuentra una pieza en su trayectoria en el eje x se la come 
+        for (int i = posini->x + 1; i <= posfinal->x; i++)
+        {
+            if (tablero.tab[posfinal->y][i] != nullptr)
                 if (i == posfinal->x)
                 {
-                    if (tablero.tab[posini->y][i]->getColor() == tablero.tab[posini->y][posfinal->x]->getColor()) return false; //si la pieza en la casilla destino es del mismo color 
-                    else if (tablero.tab[posini->y][i]->getColor() != tablero.tab[posini->y][posfinal->x]->getColor())return true; //si la pieza en la casilla destino es de color distinto 
+                    if (tablero.tab[posfinal->y][i]->getColor() == this->getColor()) { return false;}
+                    if (tablero.tab[posfinal->y][i]->getColor() != this->getColor()) { return true; }
                 }
                 else return false;
-            }
+        }
         return true;
+
     }
 
+
+    //Movimiento de la reina a la izquierda 
+    if (posfinal->x < posini->x && posini->y == posfinal->y)
+    {
+
+        for (int i = posini->x - 1; i >= posfinal->x; i--)
+        {
+            if (tablero.tab[posfinal->y][i] != nullptr)
+                if (i == posfinal->x)
+                {
+                    if (tablero.tab[i][posfinal->y]->getColor() == this->getColor()) { return false; }
+                    if (tablero.tab[i][posfinal->y]->getColor() != this->getColor()) { return true; }
+                }
+                else return false;
+        }
+        return true;
+
+    }
+
+
+    //Movimiento de la reina arriba como España 
+
+    if (posfinal->y < posini->x && posini->x == posfinal->x)
+    {
+        for (int i = posini->y + 1; i <= posfinal->y; i++)
+        {
+            if (tablero.tab[i][posfinal->x] != nullptr)
+                if (i == posfinal->y)
+                {
+                    if (tablero.tab[posfinal->x][i]->getColor() == this->getColor()) { return false; }
+                    if (tablero.tab[posfinal->x][i]->getColor() != this->getColor()) { return true; }
+                }
+                else return false;
+        }
+    }
+
+
+    //Movimiento de la reina abajo como tu madre 
+
+    if (posfinal->y > posini->x && posini->x == posfinal->x)
+    {
+        for (int i = posini->y - 1; i >= posfinal->y; i--)
+        {
+            if (tablero.tab[i][posfinal->x] != nullptr)
+                if (i == posfinal->y)
+                {
+                    if (tablero.tab[posfinal->x][i]->getColor() == this->getColor()) { return false; }
+                    if (tablero.tab[posfinal->x][i]->getColor() != this->getColor()) { return true; }
+                }
+                else return false;
+        }
+    }
+
+
+
+
+
+  
 }
+        //    //Se recorren todas las casillas en el eje x, empezando por la posición inicial de la reina
+        //    for (int i = posini->x; i < posfinal->x; i++)
+
+        //        if (tablero.tab[posini->y][i] != nullptr) //Si en la  trayectoria de la reina hay pieza  
+        //        {
+        //       
+        //            //Si la reina encuentra una pieza en su trayectoria en el eje x se la come 
+        //            if (i == posfinal->x)
+        //            {
+        //                if (tablero.tab[posini->y][posfinal->x]->getColor() == this->getColor())
+        //                {
+        //                    std::cout << "Mov no válido, mismo color.\n";
+        //                }                    else if (tablero.tab[posini->y][posfinal->x]->getColor() != this->getColor())return true; //si la pieza en la casilla destino es de color distinto 
+        //            }
+        //            else return false;
+        //        }
+        //    return true;
+        //}
+
 
     //if ((posini->x == 4 && primer_mov == true)&&((posini->y == 7 || posini->y == 0)&&primer_mov == true))
 
@@ -107,16 +183,17 @@ bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 bool Reina::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
 {
     std::cout << "soy reina" << std::endl;
-    
+
     if((abs(x_dest - x_orig) == abs(y_dest - y_orig))||(x_dest == x_orig || y_dest == y_orig))  //Comprueba linea recta y diagonal
         return true;
-    
+
     else {
         std::cout << "movimiento no valido\n";
         return false;
     }
 }
 */
+
     
 
     
