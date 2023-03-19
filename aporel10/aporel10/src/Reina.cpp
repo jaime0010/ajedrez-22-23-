@@ -67,9 +67,9 @@ bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
     }
 
 
-    //Movimiento de la reina arriba como España 
+    //Movimiento de la reina arriba 
 
-    if (posfinal->y < posini->x && posini->x == posfinal->x)
+    if (posfinal->y < posini->y && posini->x == posfinal->x)
     {
         for (int i = posini->y + 1; i <= posfinal->y; i++)
         {
@@ -81,12 +81,13 @@ bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
                 }
                 else return false;
         }
+        return true;
     }
 
 
-    //Movimiento de la reina abajo como tu madre 
+    //Movimiento de la reina abajo
 
-    if (posfinal->y > posini->x && posini->x == posfinal->x)
+    if (posfinal->y > posini->y && posini->x == posfinal->x)
     {
         for (int i = posini->y - 1; i >= posfinal->y; i--)
         {
@@ -98,7 +99,86 @@ bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
                 }
                 else return false;
         }
+        return true;
     }
+
+    if (abs(posfinal->x - posini->x != abs(posfinal->y - posini->y))) { return false; }
+
+    // Movimiento derecha/arriba
+
+    if (posfinal->x > posini->x && posfinal->y > posini->y)
+    {
+        for (int i = posini->x + 1, j = posini->y + 1; i <= posfinal->x && j <= posfinal->y; i++, j++)
+        {
+            if (tablero.tab[j][i] != nullptr)
+            {
+                if (i == posfinal->x && j == posfinal->y)
+                {
+                    if (tablero.tab[posfinal->y][posfinal->x]->getColor() == this->getColor()) { return false; }
+                    if (tablero.tab[posfinal->y][posini->x]->getColor() != this->getColor()) { return true; }
+                }
+                else return false;
+            }
+        }
+        return true;
+    }
+
+    // Movimiento izquierda/arriba 
+
+    if (posfinal->x < posini->x && posfinal->y > posini->y)
+    {
+        for (int i = posini->x - 1, j = posini->y + 1; i <= posfinal->x && j <= posfinal->y; i--, j++)
+        {
+            if (tablero.tab[j][i] != nullptr)
+            {
+                if (i == posfinal->x && j == posfinal->y)
+                {
+                    if (tablero.tab[posfinal->y][posfinal->x]->getColor() == this->getColor()) { return false; }
+                    if (tablero.tab[posfinal->y][posini->x]->getColor() != this->getColor()) { return true; }
+                }
+                else return false;
+            }
+        }
+        return true;
+    }
+
+    //Movimiento derecha abajo
+    if (posfinal->x > posini->x && posfinal->y < posini->y)
+    {
+        for (int i = posini->x + 1, j = posini->y - 1; i <= posfinal->x && j >= posfinal->y; i++, j--)
+        {
+            if (tablero.tab[j][i] != nullptr)
+            {
+                if (i == posfinal->x && j == posfinal->y)
+                {
+                    if (tablero.tab[posfinal->y][posfinal->x]->getColor() == this->getColor()) { return false; }
+                    if (tablero.tab[posfinal->y][posini->x]->getColor() != this->getColor()) { return true; }
+                }
+                else return false;
+            }
+        }
+        return true;
+    }
+
+    //Movimiento izquierda abajo
+    if (posfinal->x < posini->x && posfinal->y < posini->y)
+    {
+        for (int i = posini->x - 1, j = posini->y - 1; i >= posfinal->x && j >= posfinal->y; i--, j--)
+        {
+            if (tablero.tab[j][i] != nullptr)
+            {
+                if (i == posfinal->x && j == posfinal->y)
+                {
+                    if (tablero.tab[posfinal->y][posfinal->x]->getColor() == this->getColor()) { return false; }
+                    if (tablero.tab[posfinal->y][posini->x]->getColor() != this->getColor()) { return true; }
+                }
+                else return false;
+            }
+        }
+        return true;
+    }
+
+
 
 
 
