@@ -62,6 +62,7 @@ bool Alfil::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 }
 
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
 bool Alfil::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
@@ -78,3 +79,4 @@ bool Alfil::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
 
 }
 */
+

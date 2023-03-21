@@ -1,5 +1,5 @@
 #include "Rey.h"
-
+#include"Tablero.h"
 void Rey::dibuja()
 {
 
@@ -19,12 +19,13 @@ void Rey::dibuja()
 bool Rey::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 {
     std::cout << "soy rey" << std::endl;
-    return false;
+    if ((abs(posfinal->x - posini->x) < 2) && (abs(posfinal->y - posini->y) < 2))
+    {
+        if (tablero.tab[posfinal->y][posfinal->x] == nullptr)//si la casilla está vacía, no hay que comprobar color de pieza
+            return true;
+        else if (tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)
+            return true;
+    }
+    else
+        return false; 
 }
-/*
-bool Rey::validar_mov(int, int, int, int)
-{
-    std::cout << "soy rey" << std::endl;
-    return false;
-}
-*/
