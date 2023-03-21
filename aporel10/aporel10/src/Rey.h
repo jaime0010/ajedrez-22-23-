@@ -11,7 +11,7 @@ public:
 	Rey(Color c) :Pieza(c, REY) {};
 	void dibuja();
 	//bool validar_mov(int, int, int, int);
-	bool validar_mov(Vector2D*, Vector2D*,Tablero&);
+	bool validar_mov(Vector2D*, Vector2D*, Tablero&);
 
 
 };

@@ -1,4 +1,5 @@
 #include "Torre.h"
+#include"Tablero.h"
 
 void Torre::dibuja()
 {
@@ -16,8 +17,19 @@ void Torre::dibuja()
     glEnd();
     //glEnable(GL_LIGHTING);
 }
-bool Torre::validar_mov(Vector2D*posfinal, Vector2D*posini,Tablero& tablero)
+bool Torre::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 {
+    int full = 0;
+    for (int x = posini->x; x < abs(posfinal->x - posini->x); x++)
+    {
+        for (int y = posini->y; y < abs(posfinal->y - posini->y); y++)
+        {
+            if (tablero.tab[posini->y][posini->x])
+                full++;
+        }
+    }
+    if (full > 0)
+        return false;
     std::cout << "soy torre" << std::endl;
     if (posfinal->x != posini->x && posfinal->y != posini->y) { //Si no es en linea recta
         std::cout << "movimiento no valido\n";

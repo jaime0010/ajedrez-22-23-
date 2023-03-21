@@ -5,17 +5,17 @@
 void Peon::dibuja()
 {
     //ELEGIMOS COLOR DEL FONDO DE LA IMAGEN
-    
- 
-	glEnable(GL_TEXTURE_2D);         
-    if(color==BLANCO)glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/peonblanco.png").id);
+
+
+    glEnable(GL_TEXTURE_2D);
+    if (color == BLANCO)glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/peonblanco.png").id);
     else glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/peonnegro.png").id);
-	glDisable(GL_LIGHTING);
-	glBegin(GL_POLYGON);
-    glTexCoord2d(0, 1); ; glVertex3f( - 0.5,  - 0.5, 0.01f);
-    glTexCoord2d(1, 1); ; glVertex3f( + 0.5,  - 0.5, 0.01f);
-    glTexCoord2d(1, 0);   glVertex3f( + 0.5,  + 0.5, 0.01f);
-    glTexCoord2d(0, 0); glVertex3f(- 0.5,  + 0.5, 0.01f);
+    glDisable(GL_LIGHTING);
+    glBegin(GL_POLYGON);
+    glTexCoord2d(0, 1); ; glVertex3f(-0.5, -0.5, 0.01f);
+    glTexCoord2d(1, 1); ; glVertex3f(+0.5, -0.5, 0.01f);
+    glTexCoord2d(1, 0);   glVertex3f(+0.5, +0.5, 0.01f);
+    glTexCoord2d(0, 0); glVertex3f(-0.5, +0.5, 0.01f);
     //
     glEnd();
     //glEnable(GL_LIGHTING);
@@ -39,7 +39,7 @@ bool Peon::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
     }
 }
 */
-bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen,Tablero &tablero)
+bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen, Tablero& tablero)
 {
     std::cout << "soy peon" << std::endl;
     if (abs(pos_origen->x - pos_final->x) == 0) {

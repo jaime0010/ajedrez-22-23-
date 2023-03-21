@@ -18,15 +18,15 @@ void Alfil::dibuja()
     //glEnable(GL_LIGHTING);
 }
 
-bool Alfil::validar_mov(Vector2D*posfinal, Vector2D*posini,Tablero &tablero)
+bool Alfil::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 {
+    int no_valid = -1;
 
-    int no_valid=-1;
     //Establece hacia donde se mueve el alfil, 1=arriba o derecha; -1=abajo o izq
     int dx = (posfinal->x > posini->x) ? 1 : -1;
     int dy = (posfinal->y > posini->y) ? 1 : -1;
     //Empieza en el origen
-    int x = posini->x;
+    int x = posini->x;//no es necesario
     int y = posini->y;
 
     //Recorre toda la trayectoria diagonal
@@ -44,36 +44,29 @@ bool Alfil::validar_mov(Vector2D*posfinal, Vector2D*posini,Tablero &tablero)
 
             else {
                 // Hay una pieza en el camino
-                no_valid=1;
+                no_valid = 1;
                 return false;
             }
         }
     }
-    
+
     //Si no ha encontrado piezas, o puede comer, efectua el movimiento
     if (no_valid != 1)
-        if(abs(posfinal->x - posini->x) != abs(posfinal->y - posini->y)) {
-        std::cout << "movimiento no valido\n";
-        return false;
-    }
-    else
-        return true;
-        
+        if (abs(posfinal->x - posini->x) != abs(posfinal->y - posini->y)) {
+            std::cout << "movimiento no valido\n";
+            return false;
+        }
+        else
+            return true;
+
 }
 
 
-
-
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
 bool Alfil::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
 {
-    
+
     std::cout << "soy alfil" << std::endl;
     //Comprueba movimiento en diagonal
     if (abs(x_dest - x_orig) != abs(y_dest - y_orig)) {
@@ -82,6 +75,6 @@ bool Alfil::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
     }
     else
         return true;
-        
+
 }
 */
