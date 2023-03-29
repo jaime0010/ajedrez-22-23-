@@ -60,23 +60,3 @@ bool Alfil::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
             return true;
 
 }
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-bool Alfil::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
-{
-
-    std::cout << "soy alfil" << std::endl;
-    //Comprueba movimiento en diagonal
-    if (abs(x_dest - x_orig) != abs(y_dest - y_orig)) {
-        std::cout << "movimiento no valido\n";
-        return false;
-    }
-    else
-        return true;
-
-}
-*/
-

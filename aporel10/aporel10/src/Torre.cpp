@@ -21,62 +21,35 @@ void Torre::dibuja()
 }
 bool Torre::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 {
-    int full = 0;
-    for (int x = posini->x; x < abs(posfinal->x - posini->x); x++)
-    {
-        for (int y = posini->y; y < abs(posfinal->y - posini->y); y++)
-        {
-            if (tablero.tab[posini->y][posini->x])
-                full++;
-        }
-    }
-    if (full > 0)
+    int dx = (posfinal->x > posini->x) ? 1 : -1;
+    int dy = (posfinal->y > posini->y) ? 1 : -1;
+    if (posfinal->x == posini->x)dx = 0;
+    if (posfinal->y == posini->y)dy = 0;
+
+    if (dx != 0 && dy != 0)//hay incrmento enlos dos ejes=mal
         return false;
-    std::cout << "soy torre" << std::endl;
-    if (posfinal->x != posini->x && posfinal->y != posini->y) { //Si no es en linea recta
-        std::cout << "movimiento no valido\n";
-        return false;   //Devuelve movimiento NO valido
 
-        int no_valid = -1;
-        //Establece si se mueve la torre, 
-        int mueve_x = (posfinal->x == posini->x) ? 0 : 1;
-        int mueve_y = (posfinal->y == posini->y) ? 0 : 1;
-
-        //Establece hacia donde se mueve la torre, 1=arriba o derecha; -1=abajo o izq
-        int dx = (posfinal->x > posini->x) ? 1 : ((mueve_x == 1) ? -1 : 0);
-        int dy = (posfinal->y > posini->y) ? 1 : ((mueve_y == 1) ? -1 : 0);
-        //Empieza en el origen
-        int x = posini->x;
-        int y = posini->y;
-
-        //Recorre toda la trayectoria recta
-        while (x != posfinal->x || y != posfinal->y) {
-            //avanza a la siguiente casilla
-            x += dx;
-            y += dy;
-            //Si la casilla que analiza no apunta a puntero nulo; hay pieza
-            if (tablero.tab[y][x] != nullptr) {
-
-                //Si la pieza en la trayectoria es en la casilla destino y es de otro color la come
-                if (x == posfinal->x && y == posfinal->y && tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)
-                    return true;
-
-                else {
-                    // Hay una pieza en el camino
-                    no_valid = 1;
-                    return false;
-                }
-            }
-
-        }
-        if (no_valid != 1) {
-            std::cout << "soy torre" << std::endl;
-            if (posfinal->x != posini->x && posfinal->y != posini->y) { //Si no es en linea recta
-                std::cout << "movimiento no valido\n";
-                return false;   //Devuelve movimiento NO valido
-            }
-            else
-                return true;    //Devuelve movimiento valido
+    int x = posini->x;
+    int y = posini->y;
+    int full = 0;
+    while (y!=posfinal->y || x!=posfinal->x)
+    {
+        x += dx;
+        y += dy;
+        if (tablero.tab[y][x])//si hay una pieza
+            full++;
+    }
+    if (tablero.tab[posfinal->y][posfinal->x]!=nullptr)//si en la ultima casiilla hay pieza
+    {
+        if (tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)
+        {//si el objetivo es de otro color
+            full--;
         }
     }
+    
+    if (full == 0)
+        return true;
+    else
+        return false;
+    
 }
