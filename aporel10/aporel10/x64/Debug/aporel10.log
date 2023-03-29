@@ -1,2 +1,3 @@
-﻿  main.cpp
-  aporel10.vcxproj -> C:\Users\felip\Desktop\aporel10\bin\aporel10.exe
+﻿  Reina.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  aporel10.vcxproj -> C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10\bin\aporel10.exe
