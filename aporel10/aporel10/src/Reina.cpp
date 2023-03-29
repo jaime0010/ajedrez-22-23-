@@ -1,4 +1,5 @@
 #include "Reina.h"
+#include"Tablero.h"
 
 void Reina::dibuja()
 {
@@ -19,26 +20,41 @@ void Reina::dibuja()
 bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 {
     std::cout << "soy reina" << std::endl;
-
-    if ((abs(posfinal->x - posini->x) == abs(posfinal->y - posini->y)) || (posfinal->x == posini->x || posfinal->y == posini->y))  //Comprueba linea recta y diagonal
-        return true;
-
-    else {
-        std::cout << "movimiento no valido\n";
-        return false;
+    int dx = (posfinal->x > posini->x) ? 1 : -1;
+    int dy = (posfinal->y > posini->y) ? 1 : -1;
+    if (posfinal->x == posini->x)dx = 0;
+    if (posfinal->y == posini->y)dy = 0;
+    
+    if (abs(posfinal->x - posini->x) != abs(posfinal->y - posini->y)) {//si no es diagonal
+        if (dx != 0 && dy != 0){//si no es recto
+            std::cout << "movimiento no valido\n";
+            return false;
+        }
+        
     }
-}
-/*
-bool Reina::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
-{
-    std::cout << "soy reina" << std::endl;
-
-    if((abs(x_dest - x_orig) == abs(y_dest - y_orig))||(x_dest == x_orig || y_dest == y_orig))  //Comprueba linea recta y diagonal
-        return true;
-
-    else {
-        std::cout << "movimiento no valido\n";
-        return false;
+    int x = posini->x;
+    int y = posini->y;
+    int full = 0;
+    while (y != posfinal->y || x != posfinal->x)
+    {
+        x += dx;
+        y += dy;
+        if (tablero.tab[y][x])//si hay una pieza
+            full++;
     }
+    if (tablero.tab[posfinal->y][posfinal->x] != nullptr)//si en la ultima casiilla hay pieza
+    {
+        if (tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)
+        {//si el objetivo es de otro color
+            full--;
+        }
+    }
+
+    if (full == 0)
+        return true;
+    else
+        return false;
+
+   
+
 }
-*/
