@@ -25,6 +25,8 @@ bool Rey::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
             return true;
         else if (tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)
             return true;
+        else
+            return false;
     }
     else
         return false; 

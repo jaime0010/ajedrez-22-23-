@@ -1,3 +1,22 @@
-﻿  Reina.cpp
-C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  aporel10.vcxproj -> C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10\bin\aporel10.exe
+﻿  Alfil.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Caballo.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Peon.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Reina.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Rey.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Tablero.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Tablero.cpp(85,37): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Tablero.cpp(85,25): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+  Torre.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  main.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Generando código...
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Peon.cpp(96): warning C4715: 'Peon::validar_mov': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\aporel10\src\Alfil.cpp(62): warning C4715: 'Alfil::validar_mov': no todas las rutas de acceso de control devuelven un valor
+  aporel10.vcxproj -> C:\Users\Jaime Bustos Valera\Desktop\Ajedrez 22-23\ajedrez\aporel10\bin\aporel10.exe

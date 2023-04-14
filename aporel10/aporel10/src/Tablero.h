@@ -17,7 +17,7 @@
 class Tablero
 {
 public:
-	Vector2D* pos_origen, * pos_final;
+	Vector2D* pos_origen, * pos_final,* reyb,* reyn,* origen;
 	int coger = 1;	//se usará como una "maquina de estados para coger la posicion a la que nos queremos mover"
 	//1 = esperando a casilla de destino; -1 = esperando a casilla de origen
 	int turno = -1;	//-1=turno blancas; 1= turno negras
@@ -30,4 +30,5 @@ public:
 	bool hay_pieza(int, int);
 	void quien_soy(Pieza*);
 	bool coger_posiciones(int, int, int, int);
+	bool comprobar_jaque();
 };
