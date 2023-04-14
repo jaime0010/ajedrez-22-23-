@@ -134,7 +134,7 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		tab[y_org][x_org] = nullptr;						//eliminamos la anterior posicion de la matriz de piezas
 		Tablero::coger = 1;
 		if(comprobar_jaque())
-			std::cout << "jaque blanco señores";
+			std::cout << "jaque señores";
 		return true;
 	}
 	return false;
@@ -143,43 +143,72 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 bool Tablero::comprobar_jaque()
 {
 	int i, j,yn=0,yb=0,xn=0,xb=0;
+	Vector2D reyb(0,0);
+	Vector2D reyn(0,0);
+	Vector2D origen(0, 0);
 	
 	for (i = 0; i < 8; i++)
 	{
 		for (j = 0; j < 8; j++)
-			if (tab[i][j])
+			if (tab[i][j] != nullptr) {
 				if (tab[i][j]->pieza == 0)//es un rey
 				{
 					if (tab[i][j]->color == -1) {//rey blanco
-						xb = j; yb = i;
+						xb = j;
+						yb = i;
 						std::cout << "rey blanco en x:" << xb + 1 << " y:" << yb + 1 << std::endl;
 					}
 					else {//rey negro es color 1
-						xn = j; yn = i;
+						xn = j;
+						yn = i;
 						std::cout << "rey negro en x:" << xn + 1 << " y:" << yn + 1 << std::endl;
 					}
 				}
-					
+			}		
 	}
 	
-	reyb->x = xb;
-	reyb->y = yb;
+	reyb.x = xb;
+	reyb.y = yb;
 
-	reyn->x = xn;
-	reyn->y = yn;
+	reyn.x = xn;
+	reyn.y = yn;
 	//ya tenemos las coordenadas,ahora se comprueba el jaque para el rey blanco
 	for (i = 0; i < 8; i++)
 	{
 		for (j = 0; j < 8; j++)
 		{
-			if (tab[i][j])//si hay pieza
+			if (tab[i][j] != nullptr) {//si hay pieza
 				if (tab[i][j]->color == 1)//la pieza es negra
 				{
-					origen->x = j;
-					origen->y = i;
-					if (tab[j][i]->validar_mov(reyb, origen, *this))//si alguna pieza negra puede llegar al reyb
+					origen.x = j;
+					origen.y = i;
+					if (tab[origen.y][origen.x]->validar_mov(&reyb, &origen, *this)) {//si alguna pieza negra puede llegar al reyb
+						std::cout << "jaque al blanco señores";
 						return true;
+					}
+					else continue;
 				}
+			}
+		}
+	}
+
+	//Lo mismo para el rey negro
+	for (i = 0; i < 8; i++)
+	{
+		for (j = 0; j < 8; j++)
+		{
+			if (tab[i][j] != nullptr) {//si hay pieza
+				if (tab[i][j]->color == -1)//la pieza es blanca
+				{
+					origen.x = j;
+					origen.y = i;
+					if (tab[origen.y][origen.x]->validar_mov(&reyn, &origen, *this)) {//si alguna pieza negra puede llegar al reyb
+						std::cout << "jaque al negro señores";
+						return true;
+					}
+					else continue;
+				}
+			}
 		}
 	}
 	return false;

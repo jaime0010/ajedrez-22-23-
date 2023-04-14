@@ -33,7 +33,7 @@ bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen, Tablero& table
         //Movimiento de avance recto
         if (abs(pos_origen->x - pos_final->x) == 0) {
             //movimiento recto de peones blancos
-            if (color == -1 && (pos_final->y - pos_origen->y == 1 || (pos_final->y - pos_origen->y == 2) && (pos_origen->y == 1))) {  
+            if (color == -1 && (pos_final->y - pos_origen->y == 1 || ((pos_final->y - pos_origen->y == 2) && (pos_origen->y == 1)))) {  
                 while (y != pos_final->y) {
                     //avanza a la siguiente casilla
                     y += dy;
@@ -42,9 +42,10 @@ bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen, Tablero& table
                     if (tablero.tab[y][x] != nullptr)
                         return false;
                 }
+                return true;
             }
             //movimiento recto de peones negros
-            else if (color == 1 && (pos_final->y - pos_origen->y == -1 || (pos_final->y - pos_origen->y == -2) && (pos_origen->y == 6))) {  
+            else if (color == 1 && (pos_final->y - pos_origen->y == -1 || ((pos_final->y - pos_origen->y == -2) && (pos_origen->y == 6)))) {  
                 while (y != pos_final->y) {
                     //avanza a la siguiente casilla
                     y += dy;
@@ -53,6 +54,7 @@ bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen, Tablero& table
                     if (tablero.tab[y][x] != nullptr)
                         return false;
                 }
+                return true;
             }
             else return false;
         }
