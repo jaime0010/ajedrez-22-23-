@@ -128,19 +128,49 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 	std::cout << "origen:"<<pos_origen->x+1 << " , " << pos_origen->y+1 << "\n destino " << pos_final->x+1 << " , " << pos_final->y+1 << " , " << std::endl;
 
 	if ((tab[y_org][x_org]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
-		&& (tab[y_org][x_org]->validar_mov(pos_final, pos_origen, *this)))
+		&& (tab[y_org][x_org]->validar_mov(pos_final, pos_origen, *this))&& comprobar_jaque(tab)==false)
 	{
 		tab[y_dest][x_dest] = tab[y_org][x_org];	//actualizamos la matriz de piezas(movemos la pieza)
 		tab[y_org][x_org] = nullptr;						//eliminamos la anterior posicion de la matriz de piezas
 		Tablero::coger = 1;
-		if(comprobar_jaque())
+		if(comprobar_jaque(tab))
 			std::cout << "jaque señores";
 		return true;
 	}
+	else if ((tab[y_org][x_org]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
+		&& (tab[y_org][x_org]->validar_mov(pos_final, pos_origen, *this)) && comprobar_jaque(tab) == true) {
+		//Se crea otra matriz de piezas y se copia el contenido de tab, para "simular" el movimiento
+		Pieza* copia[columnas][filas];
+		for (int i = 0; i < 8; i++)
+		{
+			for (int j = 0; j < 8; j++)
+				copia[j][i] = tab[j][i];
+		}
+		
+		//Se simula el movimiento
+		tab[y_dest][x_dest] = tab[y_org][x_org];	//actualizamos la matriz de piezas(movemos la pieza)
+		tab[y_org][x_org] = nullptr;
+
+		//Si despues del movimiento sigue el jaque, devuelve el tablero a su posicion original y devuelve  false
+		if (comprobar_jaque(copia)) {
+			for (int i = 0; i < 8; i++)
+			{
+				for (int j = 0; j < 8; j++)
+					tab[j][i] = copia[j][i];
+			}
+			return false;
+		}
+		//Si no sigue en jaque efectua el movimiento
+		else {
+			Tablero::coger = 1;
+			return true;
+		}
+	}
+
 	return false;
 }
 
-bool Tablero::comprobar_jaque()
+bool Tablero::comprobar_jaque(Pieza *ta[columnas][filas])
 {
 	int i, j,yn=0,yb=0,xn=0,xb=0;
 	Vector2D reyb(0,0);
@@ -150,10 +180,10 @@ bool Tablero::comprobar_jaque()
 	for (i = 0; i < 8; i++)
 	{
 		for (j = 0; j < 8; j++)
-			if (tab[i][j] != nullptr) {
-				if (tab[i][j]->pieza == 0)//es un rey
+			if (ta[i][j] != nullptr) {
+				if (ta[i][j]->pieza == 0)//es un rey
 				{
-					if (tab[i][j]->color == -1) {//rey blanco
+					if (ta[i][j]->color == -1) {//rey blanco
 						xb = j;
 						yb = i;
 						std::cout << "rey blanco en x:" << xb + 1 << " y:" << yb + 1 << std::endl;
@@ -177,12 +207,12 @@ bool Tablero::comprobar_jaque()
 	{
 		for (j = 0; j < 8; j++)
 		{
-			if (tab[i][j] != nullptr) {//si hay pieza
-				if (tab[i][j]->color == 1)//la pieza es negra
+			if (ta[i][j] != nullptr) {//si hay pieza
+				if (ta[i][j]->color == 1)//la pieza es negra
 				{
 					origen.x = j;
 					origen.y = i;
-					if (tab[origen.y][origen.x]->validar_mov(&reyb, &origen, *this)) {//si alguna pieza negra puede llegar al reyb
+					if (ta[origen.y][origen.x]->validar_mov(&reyb, &origen, *this)) {//si alguna pieza negra puede llegar al reyb
 						std::cout << "jaque al blanco señores";
 						return true;
 					}
@@ -197,12 +227,12 @@ bool Tablero::comprobar_jaque()
 	{
 		for (j = 0; j < 8; j++)
 		{
-			if (tab[i][j] != nullptr) {//si hay pieza
-				if (tab[i][j]->color == -1)//la pieza es blanca
+			if (ta[i][j] != nullptr) {//si hay pieza
+				if (ta[i][j]->color == -1)//la pieza es blanca
 				{
 					origen.x = j;
 					origen.y = i;
-					if (tab[origen.y][origen.x]->validar_mov(&reyn, &origen, *this)) {//si alguna pieza negra puede llegar al reyb
+					if (ta[origen.y][origen.x]->validar_mov(&reyn, &origen, *this)) {//si alguna pieza negra puede llegar al reyb
 						std::cout << "jaque al negro señores";
 						return true;
 					}
