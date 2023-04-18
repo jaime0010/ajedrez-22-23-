@@ -33,4 +33,5 @@ public:
 	void quien_soy(Pieza*);
 	bool coger_posiciones(int, int, int, int);
 	bool comprobar_jaque(Pieza*[columnas][filas]);
+	bool comprobar_mate();
 };
