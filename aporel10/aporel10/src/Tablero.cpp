@@ -137,8 +137,8 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 			std::cout << "jaque señores";
 		return true;
 	}
-	else if ((tab[y_org][x_org]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
-		&& (tab[y_org][x_org]->validar_mov(pos_final, pos_origen, *this)) && comprobar_jaque(tab) == true) {
+	else if ((tab[y_org][x_org]->color == turno) && (tab[y_org][x_org]->validar_mov(pos_final, pos_origen, *this)) 
+		&& comprobar_jaque(tab) == true) {
 		//Se crea otra matriz de piezas y se copia el contenido de tab, para "simular" el movimiento
 		Pieza* copia[columnas][filas];
 		for (int i = 0; i < 8; i++)
@@ -148,11 +148,11 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		}
 		
 		//Se simula el movimiento
-		tab[y_dest][x_dest] = tab[y_org][x_org];	//actualizamos la matriz de piezas(movemos la pieza)
+		tab[y_dest][x_dest] = tab[y_org][x_org];
 		tab[y_org][x_org] = nullptr;
 
 		//Si despues del movimiento sigue el jaque, devuelve el tablero a su posicion original y devuelve  false
-		if (comprobar_jaque(copia)) {
+		if (comprobar_jaque(tab)) {
 			for (int i = 0; i < 8; i++)
 			{
 				for (int j = 0; j < 8; j++)
