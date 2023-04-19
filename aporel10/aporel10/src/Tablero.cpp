@@ -58,28 +58,75 @@ Tablero::~Tablero()
 
 void Tablero::dibuja()
 {
-
+	Vector2D origen(0, 0);
+	origen.x = x_org;
+	origen.y = y_org;
 	for (int fila = 0; fila < filas; fila++)
 	{
 		for (int columna = 0; columna < columnas; columna++)
 		{
-			glDisable(GL_LIGHTING);
-			if ((fila + columna) % 2 == 0) glColor3ub(100, 100, 100);
-			else glColor3ub(255, 255, 255);
-			glBegin(GL_POLYGON);
-			glVertex3d(columna, fila, 0.0);
-			glVertex3d(columna + 1.0, fila, 0.0);
-			glVertex3d(columna + 1.0, fila + 1.0, 0.0);
-			glVertex3d(columna, fila + 1.0, 0.0);
-			glEnd();
-			glEnable(GL_LIGHTING);
+				glDisable(GL_LIGHTING);
+				if ((fila + columna) % 2 == 0) glColor3ub(100, 100, 100);
+				else glColor3ub(255, 255, 255);
+				glBegin(GL_POLYGON);
+				glVertex3d(columna, fila, 0.0);
+				glVertex3d(columna + 1.0, fila, 0.0);
+				glVertex3d(columna + 1.0, fila + 1.0, 0.0);
+				glVertex3d(columna, fila + 1.0, 0.0);
+				glEnd();
+				glEnable(GL_LIGHTING);
 		}
 	}
 	for (int fila = 0; fila < filas; fila++)
 	{
 		for (int columna = 0; columna < columnas; columna++)
 		{
-			if ((fila + columna) % 2 == 0) glColor3ub(100, 100, 100);
+			Vector2D fn(0, 0);
+			fn.x = columna;
+			fn.y = fila;
+			//Colorea la casilla seleccionada
+			if (columna == x_org && fila == y_org && tab[y_org][x_org]->color==turno) {
+				//Colorea las casillas disponibles
+				for (int i = 0; i < 8; i++)
+				{
+					for (int j = 0; j < 8; j++)
+					{
+						Vector2D fin(0,0);
+						fin.x = i;
+						fin.y = j;
+						if (tab[y_org][x_org]->validar_mov(&fin, &origen, *this)) {
+							glDisable(GL_LIGHTING);
+							glColor3ub(0, 255, 0);
+							glBegin(GL_POLYGON);
+							glVertex3d(fin.x, fin.y, 0.001);
+							glColor3ub(150, 255, 0);
+							glVertex3d(fin.x + 1.0, fin.y, 0.001);
+							glColor3ub(0, 50, 150);
+							glVertex3d(fin.x + 1.0, fin.y + 1.0, 0.001);
+							glColor3ub(30, 0, 100);
+							glVertex3d(fin.x, fin.y + 1.0, 0.001);
+							glEnd();
+							glEnable(GL_LIGHTING);
+
+
+							continue;
+						}
+						else continue;
+					}
+				}
+				glDisable(GL_LIGHTING);
+				glColor3ub(255, 0, 0);
+				glBegin(GL_POLYGON);
+				glVertex3d(columna, fila, 0.001);
+				glVertex3d(columna + 1.0, fila, 0.001);
+				glVertex3d(columna + 1.0, fila + 1.0, 0.001);
+				glVertex3d(columna, fila + 1.0, 0.001);
+				glEnd();
+				glEnable(GL_LIGHTING);
+
+			}
+			else if (tab[origen.y][origen.x] != nullptr && tab[origen.y][origen.x]->validar_mov(&fn, &origen, *this)  && tab[origen.y][origen.x]->color == turno) glColor3ub(0, 0, 255);
+			else if ((fila + columna) % 2 == 0) glColor3ub(100, 100, 100);
 			else glColor3ub(255, 255, 255);
 			glPushMatrix();
 			glTranslatef(columna + 0.5, fila + 0.5, 0);
@@ -87,9 +134,6 @@ void Tablero::dibuja()
 			glPopMatrix();
 		}
 	}
-
-
-
 }
 
 

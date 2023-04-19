@@ -57,7 +57,6 @@ void OnDraw(void)
 
 	//aqui es donde hay que poner el código de dibujo
 
-
 	tab.dibuja();
 
 	//no borrar esta linea ni poner nada despues
@@ -105,10 +104,10 @@ void OnMouseClick(int button, int state, int x, int y)
 
 		if (tab.coger < 0) {                    //cogemos la posicion a la que nos queremos mover
 			if (tab.coger_posiciones(tab.x_org, tab.y_org, x, y)) {
-				tab.coger *= -1;
 				tab.turno *= -1;	//Cambia de turno una vez validado el movimiento
 				cout << "Turno = " << tab.turno << endl;
 			}
+			tab.coger *= -1;
 		}
 
 		if (x > 8 || y > 8) {
