@@ -19,7 +19,7 @@ void Caballo::dibuja()
 }
 bool Caballo::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 {
-    std::cout << "soy caballo" << std::endl;
+   /* std::cout << "soy caballo" << std::endl;*/
 
     //Comprueba movimiento en "L"
     
@@ -30,29 +30,14 @@ bool Caballo::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero
         else if (tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)//si son del  mismo color
             return true;
         else {
-            std::cout << "movimiento no valido\n";
+           /* std::cout << "movimiento no valido\n";*/
             return false;
         }
     }
       
 
     else {
-        std::cout << "movimiento no valido\n";
+       /* std::cout << "movimiento no valido\n";*/
         return false;
     }
 }
-/*
-bool Caballo::validar_mov(int x_dest, int y_dest, int x_orig, int y_orig)
-{
-    std::cout << "soy caballo" << std::endl;
-
-    //Comprueba movimiento en "L"
-    if ((abs(x_dest - x_orig) == 2 && abs(y_dest - y_orig)==1) || (abs(x_dest - x_orig) == 1 && abs(y_dest - y_orig) == 2))
-        return true;
-
-    else {
-        std::cout << "movimiento no valido\n";
-        return false;
-    }
-}
-*/

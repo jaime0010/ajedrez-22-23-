@@ -19,7 +19,7 @@ void Reina::dibuja()
 }
 bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 {
-    std::cout << "soy reina" << std::endl;
+   /* std::cout << "soy reina" << std::endl;*/
     int dx = (posfinal->x > posini->x) ? 1 : -1;
     int dy = (posfinal->y > posini->y) ? 1 : -1;
     if (posfinal->x == posini->x)dx = 0;
@@ -27,7 +27,7 @@ bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
     
     if (abs(posfinal->x - posini->x) != abs(posfinal->y - posini->y)) {//si no es diagonal
         if (dx != 0 && dy != 0){//si no es recto
-            std::cout << "movimiento no valido\n";
+           /* std::cout << "movimiento no valido\n";*/
             return false;
         }
         

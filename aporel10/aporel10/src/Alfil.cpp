@@ -39,8 +39,10 @@ bool Alfil::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
         if (tablero.tab[y][x] != nullptr) {
 
             //Si la pieza en la trayectoria es en la casilla destino y es de otro color la come
-            if (x == posfinal->x && y == posfinal->y && tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)
+            if (x == posfinal->x && y == posfinal->y && tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color) {
+                
                 return true;
+            }
 
             else {
                 // Hay una pieza en el camino
@@ -53,7 +55,7 @@ bool Alfil::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
     //Si no ha encontrado piezas, o puede comer, efectua el movimiento
     if (no_valid != 1)
         if (abs(posfinal->x - posini->x) != abs(posfinal->y - posini->y)) {
-            std::cout << "movimiento no valido\n";
+           /* std::cout << "movimiento no valido\n";*/
             return false;
         }
         else

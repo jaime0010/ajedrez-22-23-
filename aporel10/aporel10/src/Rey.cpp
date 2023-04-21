@@ -18,7 +18,7 @@ void Rey::dibuja()
 }
 bool Rey::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 {
-    std::cout << "soy rey" << std::endl;
+   /* std::cout << "soy rey" << std::endl;*/
     if ((abs(posfinal->x - posini->x) < 2) && (abs(posfinal->y - posini->y) < 2))
     {
         if (tablero.tab[posfinal->y][posfinal->x] == nullptr)//si la casilla está vacía, no hay que comprobar color de pieza
