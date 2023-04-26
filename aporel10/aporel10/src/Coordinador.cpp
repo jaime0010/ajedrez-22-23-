@@ -49,19 +49,23 @@ void Coordinador::dibuja()
 	if (estado == INICIO) //Muestra la pantalla de inicio
 	{
 
+
+		MenuInicial.draw();
+
 		gluLookAt(0, 7.5, 30, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 50);
-		ETSIDI::printxy("AJEDREZ", -5, 20);
+		ETSIDI::printxy("AJEDREZ", -4, 20);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 20);
 		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -10, 15);
+		ETSIDI::setTextColor(1, 200, 1);
+		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 12);
+		ETSIDI::printxy("Realizado por: Pablo Nunyez, Jaime Bustos, Felipe de Gracia, Victor Alcolea, Nikita Zhukov", -18, 5);
 		ETSIDI::setTextColor(1, 1, 1);
-		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 14);
-		ETSIDI::printxy("Realizado por: ", -17, 5);
-		ETSIDI::setTextColor(1, 1, 1);
+			
 	}
 	else if (estado == JUEGO) //Duda: Por qué hace lo mismo en JUEGO que en EMPEZAR???
 	{

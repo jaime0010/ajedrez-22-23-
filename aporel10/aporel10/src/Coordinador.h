@@ -13,6 +13,8 @@ public:
 	void mueve(int, int, int, int);
 	void dibuja();
 	int xorig, yorig;
+
+	Sprite MenuInicial{ "lib/imagenes/123.png", 4, 5, 23, 17 };
 	//int inicio;
 
 protected:
