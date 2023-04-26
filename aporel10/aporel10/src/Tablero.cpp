@@ -283,7 +283,7 @@ int Tablero::comprobar_jaque(Pieza *ta[columnas][filas])
 				{
 					origen.x = j;
 					origen.y = i;
-					if (ta[origen.y][origen.x]->validar_mov(&reyb, &origen, *this)) {//si alguna pieza negra puede llegar al rey blanco
+					if (ta[origen.y][origen.x]->validar_mov(&reyb, &origen, *this)) {//si alguna pieza negra puede llegar al reyb
 						std::cout << "jaque al blanco señores";
 						return -1;
 					}
@@ -326,7 +326,7 @@ bool Tablero::comprobar_mate() {
 		for (int j = 0; j < 8; j++)
 			copia[j][i] = tab[j][i];
 	}
-	//Recorre tab buscando piezas cuyo color sea igual a turno
+	//Recorre tab buscando piezas cuyo color == turno
 	for (int i = 0; i < 8; i++)
 	{
 		for (int j = 0; j < 8; j++) {
@@ -339,7 +339,7 @@ bool Tablero::comprobar_mate() {
 					for (int l = 0; l < 8; l++) {
 						pos_final.x = k;
 						pos_final.y = l;
-						//Si se puede mover se cambian las coordenadas y se comprueba si sigue habiendo jaque
+						//Si se puede mover se cambian las coord. y se comprueba si sigue habiendo jaque
 						if (tab[j][i] != nullptr && tab[j][i]->validar_mov(&pos_final, &pos_inicial, *this)) {
 							tab[pos_final.y][pos_final.x] = tab[pos_inicial.y][pos_inicial.x];
 							tab[pos_inicial.y][pos_inicial.x] = nullptr;
