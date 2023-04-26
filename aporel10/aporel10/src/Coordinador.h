@@ -14,7 +14,7 @@ public:
 	void dibuja();
 	int xorig, yorig;
 
-	Sprite MenuInicial{ "lib/imagenes/123.png", 4, 5, 23, 17 };
+	Sprite MenuInicial{ "lib/imagenes/MenuInicio.png", 5, 5, 25, 20 };
 	//int inicio;
 
 protected:
