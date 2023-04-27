@@ -201,8 +201,10 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		//Si no hay jaque efectua el movimiento
 		else {
 			Tablero::coger = 1;
-			if (comprobar_mate())
-				std::cout << "JAQUE MATE, FIN DE LA PARTIDA";
+			if (comprobar_mate()==1)
+				std::cout << "JAQUE MATE, FIN DE LA PARTIDA ganan blancas\n\n\n\n\n";
+			if (comprobar_mate() == -1)
+				std::cout << "JAQUE MATE, FIN DE LA PARTIDA ganan negras\n\n\n\n\n";
 			return true;
 		}
 	}
@@ -316,7 +318,7 @@ int Tablero::comprobar_jaque(Pieza *ta[columnas][filas])
 }
 
 //Funcion que simula todos los posibles movimientos de las piezas que estan en jaque y devuelve true si ninguno de estos movimientos saca al rey de jaque
-bool Tablero::comprobar_mate() {
+int Tablero::comprobar_mate() {
 
 	Vector2D pos_final(0, 0);
 	Vector2D pos_inicial(0, 0);
@@ -350,7 +352,7 @@ bool Tablero::comprobar_mate() {
 									for (int j = 0; j < 8; j++)
 										tab[j][i] = copia[j][i];
 								}
-								return false;
+								return 0;
 							}
 							//Si sigue habiendo jaque devuelve las piezas a las coord iniciales y continua buscando movimientos posibles
 							else {
@@ -368,7 +370,11 @@ bool Tablero::comprobar_mate() {
 
 		}
 	}
-	return true;
+	if (comprobar_jaque(tab)==1)
+	return 1;
+	else if (comprobar_jaque(tab) == -1)
+		return -1;
+
 }
 	
 

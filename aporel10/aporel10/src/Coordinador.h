@@ -15,11 +15,12 @@ public:
 	int xorig, yorig;
 
 	Sprite MenuInicial{ "lib/imagenes/MenuInicio.png", 5, 5, 25, 20 };
-	//int inicio;
+	Sprite Mate_al_negro{ "lib/imagenes/MATE_NEGRO_DALL-E.png", 5, 5, 25, 20 };
+	Sprite Mate_al_blanco{ "lib/imagenes/MATE_BLANCO_DALL-E.png", 5, 5, 25, 20 };
 
 protected:
 	Tablero tab;
-	enum Estado { INICIO, JUEGO };
+	enum Estado { INICIO, JUEGO, MATE_AL_BLANCO, MATE_AL_NEGRO };
 	Estado estado;
 	//int xorig, yorig;
 };
