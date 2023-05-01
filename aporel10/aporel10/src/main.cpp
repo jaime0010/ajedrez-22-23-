@@ -82,50 +82,38 @@ void OnMouseClick(int button, int state, int x, int y)
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
+		int x_trans, y_trans;
+
 		//x e y son las casillas clickadas por el raton
-		if (x > 252 && x <= 294)x = 1;
-		if (x > 295 && x <= 337)x = 2;
-		if (x > 338 && x <= 379)x = 3;
-		if (x > 380 && x <= 419)x = 4;
-		if (x > 420 && x <= 464)x = 5;
-		if (x > 465 && x <= 504)x = 6;
-		if (x > 505 && x <= 549)x = 7;
-		if (x > 208 && x <= 251)x = 0;
+		if (x > 252 && x <= 294)x_trans = 1;
+		if (x > 295 && x <= 337)x_trans = 2;
+		if (x > 338 && x <= 379)x_trans = 3;
+		if (x > 380 && x <= 419)x_trans = 4;
+		if (x > 420 && x <= 464)x_trans = 5;
+		if (x > 465 && x <= 504)x_trans = 6;
+		if (x > 505 && x <= 549)x_trans = 7;
+		if (x > 208 && x <= 251)x_trans = 0;
 
-		if (y < 449 && y >= 407)y = 1;
-		if (y < 406 && y >= 366)y = 2;
-		if (y < 365 && y >= 325)y = 3;
-		if (y < 324 && y >= 285)y = 4;
-		if (y < 284 && y >= 244)y = 5;
-		if (y < 243 && y >= 207)y = 6;
-		if (y < 206 && y >= 170)y = 7;
-		if (y < 491 && y >= 450)y = 0;
+		if (x <= 208 || x > 549) {
+			x_trans = -1;
+		}
+			
+
+		if (y < 449 && y >= 407)y_trans = 1;
+		if (y < 406 && y >= 366)y_trans = 2;
+		if (y < 365 && y >= 325)y_trans = 3;
+		if (y < 324 && y >= 285)y_trans = 4;
+		if (y < 284 && y >= 244)y_trans = 5;
+		if (y < 243 && y >= 207)y_trans = 6;
+		if (y < 206 && y >= 170)y_trans = 7;
+		if (y < 491 && y >= 450)y_trans = 0;
+
+		if (y < 170 || y > 491) {
+			y_trans = -1;
+		}
 		
-		coordinador.mueve(coordinador.xorig, coordinador.yorig, x, y);
-
-		/*if (tab.coger < 0) {                    //cogemos la posicion a la que nos queremos mover
-			if (tab.coger_posiciones(tab.x_org, tab.y_org, x, y)) {
-				tab.turno *= -1;	//Cambia de turno una vez validado el movimiento
-				cout << "Turno = " << tab.turno << endl;
-			}
-			tab.coger *= -1;
-		}
-
-		if (x > 8 || y > 8) {
-			std::cout << " CASILLA FUERA DE LIMITES " << std::endl;
-			ETSIDI::playMusica("lib/sonidos/disparo.mp3");
-			tab.coger = 1;
-		}
-
-		if (tab.hay_pieza(x, y)) {
-			tab.coger *= -1;
-			tab.x_org = x;
-			tab.y_org = y;
-		}
-
-
-
-	}*/
+		coordinador.seleccionaPosicion(x_trans,y_trans);
+		
 
 	}
 

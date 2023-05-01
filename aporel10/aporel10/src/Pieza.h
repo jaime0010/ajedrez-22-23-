@@ -16,6 +16,7 @@ public:
 	Pieza(Color c, TipoPieza p) :color(c), pieza(p) {};
 
 	virtual void dibuja() = 0;
+	//virtual void dibuja1() = 0;
 
 	TipoPieza* getTipoPieza() { return &pieza; }; //no se si devuelve el tipo pieza aqui o la propia pieza
 	Color* getColor() { return &color; };//igual pasa con el color no se si el color lo devuelve la clase pieza o luego el peon

@@ -135,6 +135,9 @@
     <ClCompile Include="src\Alfil.cpp" />
     <ClCompile Include="src\Caballo.cpp" />
     <ClCompile Include="src\Coordinador.cpp" />
+    <ClCompile Include="src\Juego.cpp" />
+    <ClCompile Include="src\JuegoStarWars.cpp" />
+    <ClCompile Include="src\JuegoTradicional.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\Pieza.cpp" />
@@ -148,6 +151,9 @@
     <ClInclude Include="src\Alfil.h" />
     <ClInclude Include="src\Caballo.h" />
     <ClInclude Include="src\Coordinador.h" />
+    <ClInclude Include="src\Juego.h" />
+    <ClInclude Include="src\JuegoStarWars.h" />
+    <ClInclude Include="src\JuegoTradicional.h" />
     <ClInclude Include="src\Peon.h" />
     <ClInclude Include="src\Pieza.h" />
     <ClInclude Include="src\Reina.h" />

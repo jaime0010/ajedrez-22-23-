@@ -17,17 +17,18 @@ Tablero::Tablero()
 		tab[6][j] = new Peon(Pieza::NEGRO);
 	}
 	//creacion de las demas piezas
-	// caballo
+	 //caballo
+
 	tab[0][1] = new Caballo(Pieza::BLANCO);
 	tab[0][6] = new Caballo(Pieza::BLANCO);
 	tab[7][1] = new Caballo(Pieza::NEGRO);
 	tab[7][6] = new Caballo(Pieza::NEGRO);
 	//reyes
-	tab[0][3] = new Rey(Pieza::BLANCO);
-	tab[7][3] = new Rey(Pieza::NEGRO);
+	tab[0][4] = new Rey(Pieza::BLANCO);
+	tab[7][4] = new Rey(Pieza::NEGRO);
 	//reinas
-	tab[0][4] = new Reina(Pieza::BLANCO);
-	tab[7][4] = new Reina(Pieza::NEGRO);
+	tab[0][3] = new Reina(Pieza::BLANCO);
+	tab[7][3] = new Reina(Pieza::NEGRO);
 	//torres
 	tab[0][0] = new Torre(Pieza::BLANCO);
 	tab[0][7] = new Torre(Pieza::BLANCO);
@@ -135,8 +136,147 @@ void Tablero::dibuja()
 		}
 	}
 }
+//
+//void Tablero::dibuja1()
+//{
+//	Vector2D origen(0, 0);
+//	origen.x = x_org;
+//	origen.y = y_org;
+//	for (int fila = 0; fila < filas; fila++)
+//	{
+//		for (int columna = 0; columna < columnas; columna++)
+//		{
+//			glDisable(GL_LIGHTING);
+//			if ((fila + columna) % 2 == 0) glColor3ub(100, 100, 100);
+//			else glColor3ub(255, 255, 255);
+//			glBegin(GL_POLYGON);
+//			glVertex3d(columna, fila, 0.0);
+//			glVertex3d(columna + 1.0, fila, 0.0);
+//			glVertex3d(columna + 1.0, fila + 1.0, 0.0);
+//			glVertex3d(columna, fila + 1.0, 0.0);
+//			glEnd();
+//			glEnable(GL_LIGHTING);
+//		}
+//	}
+//	for (int fila = 0; fila < filas; fila++)
+//	{
+//		for (int columna = 0; columna < columnas; columna++)
+//		{
+//			Vector2D fn(0, 0);
+//			fn.x = columna;
+//			fn.y = fila;
+//			//Colorea la casilla seleccionada
+//			if (columna == x_org && fila == y_org && tab[y_org][x_org]->color == turno) {
+//				//Colorea las casillas disponibles
+//				for (int i = 0; i < 8; i++)
+//				{
+//					for (int j = 0; j < 8; j++)
+//					{
+//						Vector2D fin(0, 0);
+//						fin.x = i;
+//						fin.y = j;
+//						if (tab[y_org][x_org]->validar_mov(&fin, &origen, *this)) {
+//							glDisable(GL_LIGHTING);
+//							glColor3ub(0, 255, 0);
+//							glBegin(GL_POLYGON);
+//							glVertex3d(fin.x, fin.y, 0.001);
+//							glColor3ub(150, 255, 0);
+//							glVertex3d(fin.x + 1.0, fin.y, 0.001);
+//							glColor3ub(0, 50, 150);
+//							glVertex3d(fin.x + 1.0, fin.y + 1.0, 0.001);
+//							glColor3ub(30, 0, 100);
+//							glVertex3d(fin.x, fin.y + 1.0, 0.001);
+//							glEnd();
+//							glEnable(GL_LIGHTING);
+//
+//
+//							continue;
+//						}
+//						else continue;
+//					}
+//				}
+//				glDisable(GL_LIGHTING);
+//				glColor3ub(255, 0, 0);
+//				glBegin(GL_POLYGON);
+//				glVertex3d(columna, fila, 0.001);
+//				glVertex3d(columna + 1.0, fila, 0.001);
+//				glVertex3d(columna + 1.0, fila + 1.0, 0.001);
+//				glVertex3d(columna, fila + 1.0, 0.001);
+//				glEnd();
+//				glEnable(GL_LIGHTING);
+//
+//			}
+//			else if (tab[origen.y][origen.x] != nullptr && tab[origen.y][origen.x]->validar_mov(&fn, &origen, *this) && tab[origen.y][origen.x]->color == turno) glColor3ub(0, 0, 255);
+//			else if ((fila + columna) % 2 == 0) glColor3ub(100, 100, 100);
+//			else glColor3ub(255, 255, 255);
+//			glPushMatrix();
+//			glTranslatef(columna + 0.5, fila + 0.5, 0);
+//			if (tab[fila][columna])tab[fila][columna]->dibuja1();
+//			glPopMatrix();
+//		}
+//	}
+//}
 
 
+void Tablero::inicializa() {
+	//peones
+	for (int j = 0; j < columnas; j++)//EL VECTOR VA DE 0 A 7, POR ESO SE PONE 6 Y 1 EN LAS COORDENADAS
+	{
+		tab[1][j] = new Peon(Pieza::BLANCO);
+		tab[6][j] = new Peon(Pieza::NEGRO);
+	}
+
+	tab[0][1] = new Caballo(Pieza::BLANCO);
+	tab[0][6] = new Caballo(Pieza::BLANCO);
+	tab[7][1] = new Caballo(Pieza::NEGRO);
+	tab[7][6] = new Caballo(Pieza::NEGRO);
+	//reyes
+	tab[0][4] = new Rey(Pieza::BLANCO);
+	tab[7][4] = new Rey(Pieza::NEGRO);
+	//reinas
+	tab[0][3] = new Reina(Pieza::BLANCO);
+	tab[7][3] = new Reina(Pieza::NEGRO);
+	//torres
+	tab[0][0] = new Torre(Pieza::BLANCO);
+	tab[0][7] = new Torre(Pieza::BLANCO);
+	tab[7][0] = new Torre(Pieza::NEGRO);
+	tab[7][7] = new Torre(Pieza::NEGRO);
+	//Alfiles
+	tab[0][2] = new Alfil(Pieza::BLANCO);
+	tab[0][5] = new Alfil(Pieza::BLANCO);
+	tab[7][2] = new Alfil(Pieza::NEGRO);
+	tab[7][5] = new Alfil(Pieza::NEGRO);
+
+	pos_origen = new Vector2D(0, 0);
+	pos_final = new Vector2D(0, 0);
+}
+
+//void Tablero::inicializa1() {
+//
+//	tab[0][1] = new Caballo(Pieza::BLANCO);
+//	tab[0][6] = new Caballo(Pieza::BLANCO);
+//	tab[7][1] = new Caballo(Pieza::NEGRO);
+//	tab[7][6] = new Caballo(Pieza::NEGRO);
+//	//reyes
+//	tab[0][4] = new Rey(Pieza::BLANCO);
+//	tab[7][4] = new Rey(Pieza::NEGRO);
+//	//reinas
+//	tab[0][3] = new Reina(Pieza::BLANCO);
+//	tab[7][3] = new Reina(Pieza::NEGRO);
+//	//torres
+//	tab[0][0] = new Torre(Pieza::BLANCO);
+//	tab[0][7] = new Torre(Pieza::BLANCO);
+//	tab[7][0] = new Torre(Pieza::NEGRO);
+//	tab[7][7] = new Torre(Pieza::NEGRO);
+//	//Alfiles
+//	tab[0][2] = new Alfil(Pieza::BLANCO);
+//	tab[0][5] = new Alfil(Pieza::BLANCO);
+//	tab[7][2] = new Alfil(Pieza::NEGRO);
+//	tab[7][5] = new Alfil(Pieza::NEGRO);
+//
+//	pos_origen = new Vector2D(0, 0);
+//	pos_final = new Vector2D(0, 0);
+//}
 
 bool Tablero::hay_pieza(int x, int y)
 {
