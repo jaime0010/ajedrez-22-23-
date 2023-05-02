@@ -1,8 +1,10 @@
 #include "JuegoStarWars.h"
 
 
+
 JuegoStarWars::JuegoStarWars()
 {
+
 	tab = new Tablero(StarWars);
 }
 
@@ -24,7 +26,6 @@ void JuegoStarWars::dibuja()
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
-
 }
 
 int JuegoStarWars::mueve(int x_dest, int y_dest)

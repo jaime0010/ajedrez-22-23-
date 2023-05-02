@@ -3,6 +3,8 @@
 #include"Tablero.h"
 #include "Juego.h"
 
+enum Estado { INICIO, JUEGO, MATE_AL_BLANCO, MATE_AL_NEGRO };
+
 class Coordinador
 {
 public:
@@ -22,7 +24,6 @@ public:
 protected:
 	//Tablero tab;
 	Juego* juego;
-	enum Estado { INICIO, JUEGO, MATE_AL_BLANCO, MATE_AL_NEGRO };
 	Estado estado;
 	//int xorig, yorig;
 };

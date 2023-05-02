@@ -54,6 +54,9 @@
     <ClCompile Include="src\JuegoTradicional.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="src\JuegoEtsidi.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
     <ClCompile Include="src\JuegoStarWars.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -96,6 +99,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\JuegoStarWars.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JuegoEtsidi.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

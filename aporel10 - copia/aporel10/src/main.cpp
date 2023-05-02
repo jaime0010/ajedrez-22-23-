@@ -84,7 +84,7 @@ void OnMouseClick(int button, int state, int x, int y)
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		int x_trans, y_trans;
+		int x_trans = -1, y_trans = -1;
 
 		//x e y son las casillas clickadas por el raton
 		if (x > 252 && x <= 294)x_trans = 1;

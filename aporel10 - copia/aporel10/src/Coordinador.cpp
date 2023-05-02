@@ -1,6 +1,8 @@
 #include "Coordinador.h"
 #include "JuegoStarWars.h"
 #include "JuegoTradicional.h"
+#include "JuegoEtsidi.h"
+
 
 Coordinador::Coordinador()
 {
@@ -89,7 +91,7 @@ void Coordinador::dibuja()
 		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -10, 15);*/
 		ETSIDI::setTextColor(1, 200, 1);
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 7);
-		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Felipe de Gracia, Victor Alcolea, Nikita Zhukov", -18, 5);
+		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Felipe de Gracia, Nikita Zhukov, Victor Alcolea", -18, 5);
 		ETSIDI::setTextColor(1, 1, 1);
 			
 	}
@@ -157,7 +159,7 @@ void Coordinador::dibuja()
 		ETSIDI::printxy("PULSE LA TECLA -E- PARA COMPROBAR EL MATE", -5, 20);
 		ETSIDI::setTextColor(0, 0, 0);
 		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 12);
-		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Felipe de Gracia, Victor Alcolea, Nikita Zhukov", -18, 5);
+		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Nikita Zhukov, Felipe de Gracia,Victor Alcolea", -18, 5);
 		ETSIDI::setTextColor(0, 0, 0);
 	}
 
@@ -170,43 +172,101 @@ void Coordinador::teclaEspecial(unsigned char key)
 
 void Coordinador::Tecla(unsigned char key)
 {
+	switch (estado)
+	{
+		case(INICIO):
+			{
+				switch (key)
+				{
+					case 't':
+					case 'T':
+						estado = JUEGO;
+						juego = new JuegoTradicional();
+					break;
+
+					case 's':
+					case 'S':
+						estado = JUEGO;
+						juego = new JuegoStarWars();
+					break;
+
+					case 'e':
+					case 'E':
+						estado = JUEGO;
+						juego = new JuegoEtsidi();
+						break;
+				}
+			}
+		case(JUEGO):
+			{
+				switch (key)
+				{
+					case 'a':
+					case 'A':
+						estado = INICIO;
+					break;
+				}
+			}
+		case (MATE_AL_BLANCO):
+			{	
+				switch (key)
+				{
+					case 'e':
+					case 'E':
+						estado = INICIO;
+					break;
+
+				}
+			}
+		case (MATE_AL_NEGRO):
+			{
+				switch (key)
+				{
+					case 'e':
+					case 'E':
+						estado = INICIO;
+						break;
+				}
+			}
+	}
+
 
 	
-	if (estado == INICIO)
-	{
-		//sustituir por un switch si tenemos más de dos opciones
-		if (key == 't' || key == 'T')
-		{
-			estado = JUEGO;
-			juego = new JuegoTradicional();
-			
-		}
-		else if (key == 's' || key == 'S'){
+	//if (estado == INICIO)
+	//{
+	//	//sustituir por un switch si tenemos más de dos opciones
+	//	if (key == 't' || key == 'T')
+	//	{
+	//		estado = JUEGO;
+	//		juego = new JuegoTradicional();
+	//		
+	//	}
+	//	else if (key == 's' || key == 'S'){
 
-			estado = JUEGO;
-			juego = new JuegoStarWars();
-		}
-		
-	}
-	if (estado == JUEGO)
-	{
-		if (key == 'a' || key == 'A')
-		{
-			estado = INICIO;			
+	//		estado = JUEGO;
+	//		juego = new JuegoStarWars();
+	//	}
+	//	
+	//}
+	//if (estado == JUEGO)
+	//{
+	//	if (key == 'a' || key == 'A')
+	//	{
+	//		estado = INICIO;			
 
-		}
+	//	}
 
-	}
+	//}
 
 
-	if (estado == MATE_AL_BLANCO || estado==MATE_AL_NEGRO)
-	{
-		if (key == 'e' || key == 'E')
-		{
-			estado = JUEGO;
+	//if (estado == MATE_AL_BLANCO || estado==MATE_AL_NEGRO)
+	//{
+	//	if (key == 'e' || key == 'E')
+	//	{
+	//		estado = JUEGO;
 
-		}
+	//	}
 
-	}
+	//}
 	
 }

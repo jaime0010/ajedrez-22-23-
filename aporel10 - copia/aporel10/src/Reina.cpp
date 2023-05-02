@@ -4,18 +4,40 @@
 
 void Reina::dibuja()
 {
-    std::string negro,blanco;
 
     glEnable(GL_TEXTURE_2D);
-    if (modo == Tradicional) { // si hay mas de dos modos poner un swtich
 
-        blanco = "lib/imagenes/reinablanca_tradicional.png";
-        negro = "lib/imagenes/reinanegra_tradicional.png";
+    switch (modo)
+    {
+        case(Tradicional):
+        {
+            blanco = "lib/imagenes/reinablanca_tradicional.png";
+            negro = "lib/imagenes/reinanegra_tradicional.png";
+            break;
+        }
+        case(StarWars):
+        {
+            blanco = "lib/imagenes/reinablanca_StarWars.png";
+            negro = "lib/imagenes/reinanegra_StarWars.png";
+            break;
+        }
+        case(Etsidi):
+        {
+            blanco = "lib/imagenes/reinablanca_StarWars.png";
+            negro = "lib/imagenes/reinanegra_StarWars.png";
+            break;
+        }
     }
-    else {
-        blanco = "lib/imagenes/reinablanca_StarWars.png";
-        negro = "lib/imagenes/reinanegra_StarWars.png";
-    }
+
+    //if (modo == Tradicional) { // si hay mas de dos modos poner un swtich
+
+    //    blanco = "lib/imagenes/reinablanca_tradicional.png";
+    //    negro = "lib/imagenes/reinanegra_tradicional.png";
+    //}
+    //else {
+    //    blanco = "lib/imagenes/reinablanca_StarWars.png";
+    //    negro = "lib/imagenes/reinanegra_StarWars.png";
+    //}
     if (color == BLANCO)glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(blanco.c_str()).id);
     else glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(negro.c_str()).id);
     glDisable(GL_LIGHTING);

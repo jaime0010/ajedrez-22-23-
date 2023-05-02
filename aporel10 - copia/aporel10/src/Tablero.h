@@ -23,7 +23,7 @@ public:
 	int coger = 1;	//se usará como una "maquina de estados para coger la posicion a la que nos queremos mover"
 	//1 = esperando a casilla de destino; -1 = esperando a casilla de origen
 	int turno = -1;	//-1=turno blancas; 1= turno negras
-	int x_org =NULL, y_org=NULL ; //esto antes era 100 100
+	int x_org = -1, y_org= -1 ; //esto antes era 100 100
 
 	//EstiloModoJuego _modo;  ///NUEVO CAMBIO DUDOSO
 

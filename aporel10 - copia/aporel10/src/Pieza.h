@@ -3,7 +3,7 @@
 #include "freeglut.h"
 #include "Vector2D.h"
 
-enum EstiloModoJuego{Tradicional, StarWars};
+enum EstiloModoJuego{Tradicional, StarWars,Etsidi};
 class Tablero;
 
 
