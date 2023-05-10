@@ -4,7 +4,7 @@
 
 class Juego {
 public:
-
+	
 	Juego();
 	~Juego();
 	virtual void dibuja()=0;
@@ -12,9 +12,7 @@ public:
 	//void inicializa();
 	
 protected:
-
+	 //int t = -1;
 	Tablero* tab;
-
-
 
 };

@@ -8,8 +8,6 @@ Coordinador::Coordinador()
 {
 	estado = INICIO;
 	juego = nullptr;
-	/*xorig = 0;
-	yorig = 0;*/
 
 }
 Coordinador::~Coordinador()
@@ -86,42 +84,18 @@ void Coordinador::dibuja()
 		ETSIDI::setTextColor(0, 1, 0);
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 10);
 		ETSIDI::printxy("Modo ETSIDI : Pulse E", -15, 12);
-		/*ETSIDI::setTextColor(1, 1, 1);
-		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 20);
-		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -10, 15);*/
 		ETSIDI::setTextColor(1, 200, 1);
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 7);
 		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Felipe de Gracia, Nikita Zhukov, Victor Alcolea", -18, 5);
 		ETSIDI::setTextColor(1, 1, 1);
 			
 	}
-	else if (estado == JUEGO) //Duda: Por qué hace lo mismo en JUEGO que en EMPEZAR???
+	else if (estado == JUEGO) 
 	{
 		juego->dibuja();
 		
 	}
-	//else if (estado == JUEGO1) //fUTURO MODO STAR WARS
-	//{
 
-
-	//	glEnable(GL_TEXTURE_2D);
-
-	//	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/FondoChess.png").id);//CAMBIAR POR UNO DE LA GALAXIA
-
-	//	glDisable(GL_LIGHTING);
-	//	glBegin(GL_POLYGON);
-	//	glColor3f(1, 1, 1);
-	//	glTexCoord2d(0, 1); glVertex3f(-15, -10, -1.5);
-	//	glTexCoord2d(1, 1); glVertex3f(15, -10, -1.5);
-	//	glTexCoord2d(1, 0); glVertex3f(15, 35, -1.5);
-	//	glTexCoord2d(0, 0); glVertex3f(-15, 35, -1.5);
-	//	glEnd();
-	//	glEnable(GL_LIGHTING);
-	//	glDisable(GL_TEXTURE_2D);
-	//	//tab.dibuja1();
-	//	tab.inicializa1();
-
-	//}
 	else if (estado == MATE_AL_BLANCO) {
 		//std::cout << "\n\n\n\n" << tab.comprobar_mate() <<"\n\n\n\n";
 			Mate_al_blanco.draw();
@@ -230,43 +204,5 @@ void Coordinador::Tecla(unsigned char key)
 			}
 	}
 
-
-	
-	//if (estado == INICIO)
-	//{
-	//	//sustituir por un switch si tenemos más de dos opciones
-	//	if (key == 't' || key == 'T')
-	//	{
-	//		estado = JUEGO;
-	//		juego = new JuegoTradicional();
-	//		
-	//	}
-	//	else if (key == 's' || key == 'S'){
-
-	//		estado = JUEGO;
-	//		juego = new JuegoStarWars();
-	//	}
-	//	
-	//}
-	//if (estado == JUEGO)
-	//{
-	//	if (key == 'a' || key == 'A')
-	//	{
-	//		estado = INICIO;			
-
-	//	}
-
-	//}
-
-
-	//if (estado == MATE_AL_BLANCO || estado==MATE_AL_NEGRO)
-	//{
-	//	if (key == 'e' || key == 'E')
-	//	{
-	//		estado = JUEGO;
-
-	//	}
-
-	//}
 	
 }

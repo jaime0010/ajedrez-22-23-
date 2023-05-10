@@ -4,7 +4,6 @@
 void Alfil::dibuja()
 {
 
-
     std::string negro, blanco;
 
     glEnable(GL_TEXTURE_2D);

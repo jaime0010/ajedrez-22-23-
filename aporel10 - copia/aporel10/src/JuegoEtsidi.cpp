@@ -30,36 +30,46 @@ void JuegoEtsidi::dibuja()
 
 int JuegoEtsidi::mueve(int x_dest, int y_dest)
 {
-	/*xorig = tab.x_org;
-	yorig = tab.y_org;*/
 
 	if (x_dest == -1 || y_dest == -1) {
 		std::cout << " CASILLA FUERA DE LIMITES " << std::endl;
-		ETSIDI::playMusica("lib/sonidos/disparo.mp3"); //poner sonido de disparo en el modo de star wars
-		tab->coger = 1;
+		ETSIDI::playMusica("lib/sonidos/sable-laser-.mp3"); //poner sonido de disparo en el modo de star wars
+		tab->set_coger(1);
 
 		return 0;
 	}
 
-	if (tab->coger < 0) {                    //cogemos la posicion a la que nos queremos mover
-		if (tab->coger_posiciones(tab->x_org, tab->y_org, x_dest, y_dest)) {
+	if (tab->get_coger() < 0) {  //cogemos la posicion a la que nos queremos mover
+		if (tab->coger_posiciones(tab->get_x(), tab->get_y(), x_dest, y_dest)) {
 			if (tab->comprobar_mate() == -1)
 				return 1;
 			else if (tab->comprobar_mate() == 1)
 				return -1;
-			tab->turno *= -1;	//Cambia de turno una vez validado el movimiento
-			std::cout << "Turno = " << tab->turno << std::endl;
+
+			if (tab->get_turno() < 0)
+			{
+				tab->set_turno(1);
+				std::cout << "Turno = " << tab->get_turno() << std::endl;
+
+			}
+			else
+			{
+				tab->set_turno(-1);
+				std::cout << "Turno = " << tab->get_turno() << std::endl;
+			}
+
 		}
 
-		/*if (tab.comprobar_mate() == 1)estado = MATE_AL_BLANCO;
-		if (tab.comprobar_mate() == -1)estado = MATE_AL_NEGRO;*/
-		tab->coger *= -1;
+		tab->set_coger(-1);
 	}
 
+
+
 	if (tab->hay_pieza(x_dest, y_dest)) {
-		tab->coger *= -1;
-		tab->x_org = x_dest;
-		tab->y_org = y_dest;
+
+		tab->set_coger(-1);
+		tab->set_x(x_dest);
+		tab->set_y(y_dest);
 	}
 	return 0;
 }

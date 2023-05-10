@@ -137,115 +137,7 @@ void Tablero::dibuja()
 		}
 	}
 }
-//
-//void Tablero::dibuja1()
-//{
-//	Vector2D origen(0, 0);
-//	origen.x = x_org;
-//	origen.y = y_org;
-//	for (int fila = 0; fila < filas; fila++)
-//	{
-//		for (int columna = 0; columna < columnas; columna++)
-//		{
-//			glDisable(GL_LIGHTING);
-//			if ((fila + columna) % 2 == 0) glColor3ub(100, 100, 100);
-//			else glColor3ub(255, 255, 255);
-//			glBegin(GL_POLYGON);
-//			glVertex3d(columna, fila, 0.0);
-//			glVertex3d(columna + 1.0, fila, 0.0);
-//			glVertex3d(columna + 1.0, fila + 1.0, 0.0);
-//			glVertex3d(columna, fila + 1.0, 0.0);
-//			glEnd();
-//			glEnable(GL_LIGHTING);
-//		}
-//	}
-//	for (int fila = 0; fila < filas; fila++)
-//	{
-//		for (int columna = 0; columna < columnas; columna++)
-//		{
-//			Vector2D fn(0, 0);
-//			fn.x = columna;
-//			fn.y = fila;
-//			//Colorea la casilla seleccionada
-//			if (columna == x_org && fila == y_org && tab[y_org][x_org]->color == turno) {
-//				//Colorea las casillas disponibles
-//				for (int i = 0; i < 8; i++)
-//				{
-//					for (int j = 0; j < 8; j++)
-//					{
-//						Vector2D fin(0, 0);
-//						fin.x = i;
-//						fin.y = j;
-//						if (tab[y_org][x_org]->validar_mov(&fin, &origen, *this)) {
-//							glDisable(GL_LIGHTING);
-//							glColor3ub(0, 255, 0);
-//							glBegin(GL_POLYGON);
-//							glVertex3d(fin.x, fin.y, 0.001);
-//							glColor3ub(150, 255, 0);
-//							glVertex3d(fin.x + 1.0, fin.y, 0.001);
-//							glColor3ub(0, 50, 150);
-//							glVertex3d(fin.x + 1.0, fin.y + 1.0, 0.001);
-//							glColor3ub(30, 0, 100);
-//							glVertex3d(fin.x, fin.y + 1.0, 0.001);
-//							glEnd();
-//							glEnable(GL_LIGHTING);
-//
-//
-//							continue;
-//						}
-//						else continue;
-//					}
-//				}
-//				glDisable(GL_LIGHTING);
-//				glColor3ub(255, 0, 0);
-//				glBegin(GL_POLYGON);
-//				glVertex3d(columna, fila, 0.001);
-//				glVertex3d(columna + 1.0, fila, 0.001);
-//				glVertex3d(columna + 1.0, fila + 1.0, 0.001);
-//				glVertex3d(columna, fila + 1.0, 0.001);
-//				glEnd();
-//				glEnable(GL_LIGHTING);
-//
-//			}
-//			else if (tab[origen.y][origen.x] != nullptr && tab[origen.y][origen.x]->validar_mov(&fn, &origen, *this) && tab[origen.y][origen.x]->color == turno) glColor3ub(0, 0, 255);
-//			else if ((fila + columna) % 2 == 0) glColor3ub(100, 100, 100);
-//			else glColor3ub(255, 255, 255);
-//			glPushMatrix();
-//			glTranslatef(columna + 0.5, fila + 0.5, 0);
-//			if (tab[fila][columna])tab[fila][columna]->dibuja1();
-//			glPopMatrix();
-//		}
-//	}
-//}
 
-
-
-//void Tablero::inicializa1() {
-//
-//	tab[0][1] = new Caballo(Pieza::BLANCO);
-//	tab[0][6] = new Caballo(Pieza::BLANCO);
-//	tab[7][1] = new Caballo(Pieza::NEGRO);
-//	tab[7][6] = new Caballo(Pieza::NEGRO);
-//	//reyes
-//	tab[0][4] = new Rey(Pieza::BLANCO);
-//	tab[7][4] = new Rey(Pieza::NEGRO);
-//	//reinas
-//	tab[0][3] = new Reina(Pieza::BLANCO);
-//	tab[7][3] = new Reina(Pieza::NEGRO);
-//	//torres
-//	tab[0][0] = new Torre(Pieza::BLANCO);
-//	tab[0][7] = new Torre(Pieza::BLANCO);
-//	tab[7][0] = new Torre(Pieza::NEGRO);
-//	tab[7][7] = new Torre(Pieza::NEGRO);
-//	//Alfiles
-//	tab[0][2] = new Alfil(Pieza::BLANCO);
-//	tab[0][5] = new Alfil(Pieza::BLANCO);
-//	tab[7][2] = new Alfil(Pieza::NEGRO);
-//	tab[7][5] = new Alfil(Pieza::NEGRO);
-//
-//	pos_origen = new Vector2D(0, 0);
-//	pos_final = new Vector2D(0, 0);
-//}
 
 bool Tablero::hay_pieza(int x, int y)
 {
@@ -254,8 +146,6 @@ bool Tablero::hay_pieza(int x, int y)
 		return (true);
 	}
 	else {
-		////std::cout << "origen:" << pos_origen->x << " , " << pos_origen->y << "\n destino " << pos_final->x << " , " << pos_final->y << " , " << std::endl;
-		//std::cout << "casilla libre " << std::endl;
 		return false;
 	}
 }
@@ -276,10 +166,6 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 
 	if (x_org == x_dest && y_org == y_dest)
 		return false;
-
-	/*std::cout << "origen:" << pos_origen->x + 1 << " , " << pos_origen->y + 1 << "\n destino " << pos_final->x + 1 << " , " << pos_final->y + 1 << " , " << std::endl;
-
-	std::cout << "origen:"<<pos_origen->x+1 << " , " << pos_origen->y+1 << "\n destino " << pos_final->x+1 << " , " << pos_final->y+1 << " , " << std::endl;*/
 
 	//Si no hay jaque, comprobamos posibles movimientos siempre que no se genere un jaque
 	if ((tab[y_org][x_org]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
@@ -484,6 +370,48 @@ int Tablero::comprobar_mate() {
 	else if (comprobar_jaque(tab) == -1)
 		return -1;
 
+}
+
+int Tablero::get_turno()
+{
+	return turno;
+}
+
+int Tablero::get_coger()
+{
+	return coger;
+	
+}
+
+int Tablero::get_x()
+{
+	return x_org;
+}
+
+int Tablero::get_y()
+{	
+	return y_org;
+}
+
+void Tablero::set_turno(int t)
+{
+	turno = t;
+
+}
+
+void Tablero::set_coger(int c)
+{
+	coger = c;
+}
+
+void Tablero::set_x(int x)
+{
+	x_org = x;
+}
+
+void Tablero::set_y(int y)
+{
+	y_org = y;
 }
 	
 
