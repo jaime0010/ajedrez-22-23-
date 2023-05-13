@@ -85,9 +85,12 @@ void Coordinador::dibuja()
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 10);
 		ETSIDI::printxy("Modo ETSIDI : Pulse E", -15, 12);
 		ETSIDI::setTextColor(1, 200, 1);
-		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 7);
+		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 5);
 		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Felipe de Gracia, Nikita Zhukov, Victor Alcolea", -18, 5);
 		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::setTextColor(1, 1, 0);
+		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 10);
+		ETSIDI::printxy(" al menu: Pulse A", 10, 10);
 			
 	}
 	else if (estado == JUEGO) 
@@ -105,12 +108,12 @@ void Coordinador::dibuja()
 				0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
 				0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
 			ETSIDI::setTextColor(1, 1, 1);
-			ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 28);
-			ETSIDI::printxy("FIN DE LA PARTIDA", -5, 30);
-			ETSIDI::printxy("GANAN LAS NEGRAS", -5, 25);
+			ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 22);
+			ETSIDI::printxy("FIN DE LA PARTIDA", -18, 30);
+			ETSIDI::printxy("GANAN LAS NEGRAS", -18, 25);
 			ETSIDI::setTextColor(1, 1, 1);
 			ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 10);
-			ETSIDI::printxy("PULSE LA TECLA -E- PARA COMPROBAR EL MATE", -5, 20);
+			ETSIDI::printxy("PULSE LA TECLA -E- PARA COMPROBAR EL MATE", -18, 20);
 			ETSIDI::setTextColor(1, 1, 1);
 			ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 12);
 			ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Felipe de Gracia, Victor Alcolea, Nikita Zhukov", -18, 5);
@@ -125,12 +128,12 @@ void Coordinador::dibuja()
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
 		ETSIDI::setTextColor(0, 0, 0);
-		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 28);
-		ETSIDI::printxy("FIN DE LA PARTIDA", -5, 30);
-		ETSIDI::printxy("GANAN LAS BLANCAS", -5, 25);
+		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 22);
+		ETSIDI::printxy("FIN DE LA PARTIDA", -18, 30);
+		ETSIDI::printxy("GANAN LAS BLANCAS", -18, 25);
 		ETSIDI::setTextColor(0, 0, 0);
 		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 10);
-		ETSIDI::printxy("PULSE LA TECLA -E- PARA COMPROBAR EL MATE", -5, 20);
+		ETSIDI::printxy("PULSE LA TECLA -E- PARA COMPROBAR EL MATE", -18, 20);
 		ETSIDI::setTextColor(0, 0, 0);
 		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 12);
 		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Nikita Zhukov, Felipe de Gracia,Victor Alcolea", -18, 5);
