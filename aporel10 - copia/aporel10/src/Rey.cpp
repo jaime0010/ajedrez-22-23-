@@ -42,3 +42,11 @@ bool Rey::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
     else
         return false; 
 }
+void Rey::getTipoPieza()
+{
+    std::cout << "soy un rey";
+    if (color == -1)
+        std::cout << "blanco";
+    else
+        std::cout << "negro";
+}

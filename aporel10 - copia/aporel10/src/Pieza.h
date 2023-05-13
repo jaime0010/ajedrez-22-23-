@@ -2,6 +2,7 @@
 #include "ETSIDI.h"
 #include "freeglut.h"
 #include "Vector2D.h"
+#include<iostream>
 
 enum EstiloModoJuego{Tradicional, StarWars,Etsidi};
 class Tablero;
@@ -22,7 +23,7 @@ public:
 	virtual void dibuja() = 0;
 	//virtual void dibuja1() = 0;
 
-	TipoPieza* getTipoPieza() { return &pieza; }; //no se si devuelve el tipo pieza aqui o la propia pieza
+	virtual void getTipoPieza() { }; //no se si devuelve el tipo pieza aqui o la propia pieza
 	Color* getColor() { return &color; };//igual pasa con el color no se si el color lo devuelve la clase pieza o luego el peon
 
 	//virtual bool validar_mov(int, int, int, int)=0;

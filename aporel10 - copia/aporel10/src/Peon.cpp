@@ -117,3 +117,12 @@ bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen, Tablero& table
         else return false;
 
     }
+
+void Peon::getTipoPieza()
+{
+    std::cout << "soy un peon ";
+    if (color == -1)
+        std::cout << "blanco";
+    else
+        std::cout << "negro";
+}

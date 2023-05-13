@@ -11,6 +11,6 @@ public:
 	Rey(Color c,EstiloModoJuego modo) :Pieza(c, REY, modo) {};
 	void dibuja();
 	bool validar_mov(Vector2D*, Vector2D*, Tablero&);
-
+	void getTipoPieza();
 
 };

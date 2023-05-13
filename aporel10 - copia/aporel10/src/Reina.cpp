@@ -78,7 +78,12 @@ bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
         return true;
     else
         return false;
-
-   
-
+}
+void Reina::getTipoPieza()
+{
+    std::cout << "soy una reina";
+    if (color == -1)
+        std::cout << "blanca";
+    else
+        std::cout << "negra";
 }

@@ -64,3 +64,11 @@ bool Torre::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
         return false;
     
 }
+void Torre::getTipoPieza()
+{
+    std::cout << "soy una torre ";
+    if (color == -1)
+        std::cout << "blanca";
+    else
+        std::cout << "negra";
+}

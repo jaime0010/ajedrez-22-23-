@@ -1,1 +1,6 @@
-﻿  aporel10.vcxproj -> C:\Users\felip\Documents\GitHub\ajedrez-22-23-\aporel10 - copia\bin\aporel10.exe
+﻿  Tablero.cpp
+C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10 - copia\aporel10\src\Rey.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10 - copia\aporel10\src\Tablero.cpp(134,37): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10 - copia\aporel10\src\Tablero.cpp(134,25): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10 - copia\aporel10\src\Tablero.cpp(374): warning C4715: 'Tablero::comprobar_mate': no todas las rutas de acceso de control devuelven un valor
+  aporel10.vcxproj -> C:\Users\Jaime Bustos Valera\Desktop\Copia ajedrez\aporel10 - copia\bin\aporel10.exe

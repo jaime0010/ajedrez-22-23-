@@ -157,7 +157,6 @@ void Tablero::quien_soy(Pieza* tab)
 
 bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 {
-
 	pos_origen->x = x_org;
 	pos_origen->y = y_org;
 
@@ -196,6 +195,8 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		//Si no hay jaque efectua el movimiento
 		else {
 			Tablero::coger = 1;
+			tab[y_dest][x_dest]->getTipoPieza();
+			std::cout << " y voy desde :" << x_org + 1 << "_" << y_org + 1 << " a " << x_dest + 1 << "_" << y_dest + 1 << std::endl;
 			if (comprobar_mate()==1)
 				std::cout << "JAQUE MATE, FIN DE LA PARTIDA ganan blancas\n\n\n\n\n";
 			if (comprobar_mate() == -1)

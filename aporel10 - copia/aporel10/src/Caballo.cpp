@@ -49,3 +49,11 @@ bool Caballo::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero
         return false;
     }
 }
+void Caballo::getTipoPieza()
+{
+    std::cout << "soy un caballo";
+    if (color == -1)
+        std::cout << "blanco";
+    else
+        std::cout << "negro";
+}

@@ -74,3 +74,11 @@ bool Alfil::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
             return true;
 
 }
+void Alfil::getTipoPieza()
+{
+    std::cout << "soy un alfil";
+    if (color == -1)
+        std::cout << "blanco";
+    else
+        std::cout << "negro";
+}
