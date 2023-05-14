@@ -83,14 +83,31 @@ void Coordinador::dibuja()
 		ETSIDI::printxy("Modo StarWars : Pulse S", -16, 18);
 		ETSIDI::setTextColor(0, 1, 0);
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 10);
-		ETSIDI::printxy("Modo ETSIDI : Pulse E", -15, 12);
+		ETSIDI::printxy("Modo ETSIDI : Pulse D", -15, 12);
 		ETSIDI::setTextColor(1, 200, 1);
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 5);
 		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Felipe de Gracia, Nikita Zhukov, Victor Alcolea", -18, 5);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 10);
+		ETSIDI::printxy(" Para regrresar", 10, 12);
+		ETSIDI::setTextColor(1, 1, 0);
+		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 10);
 		ETSIDI::printxy(" al menu: Pulse A", 10, 10);
+
+
+		std::ifstream ArchivoSalida("lib/ficheros/Partida.txt", std::ios::in | std::ios::ate); // Abrir el archivo en modo lectura y obtener su tamaño
+
+		if (ArchivoSalida.tellg() == 0) {
+			std::cout << "El archivo está vacío." << std::endl;
+		}
+		else {
+			std::ofstream outputFile("lib/ficheros/Partida.txt", std::ios::out | std::ios::trunc); // Abrir el archivo en modo escritura y truncar su contenido
+			outputFile.close();
+			std::cout << "El archivo se ha vaciado correctamente." << std::endl;
+		}
+
+		ArchivoSalida.close();
 			
 	}
 	else if (estado == JUEGO) 

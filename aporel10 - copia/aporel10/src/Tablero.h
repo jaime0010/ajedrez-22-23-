@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 #include "freeglut.h"
 #include "Peon.h"
 #include "Rey.h"

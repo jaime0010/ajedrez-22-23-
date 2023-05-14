@@ -147,9 +147,29 @@ bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen, Tablero& table
 
 void Peon::getTipoPieza()
 {
+    std::ofstream archivoSalida;
+    archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
+
     std::cout << "soy un peon ";
-    if (color == -1)
-        std::cout << "blanco";
-    else
-        std::cout << "negro";
+    if (color == -1) {
+        //std::cout << "blanco";
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Peon blanco" << std::endl;    
+
+            archivoSalida.close();
+        }
+    }
+       
+    else {
+        //std::cout << "negro";
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Peon negro" << std::endl;
+
+            archivoSalida.close();
+        }
+    }
+       
+
+
+
 }

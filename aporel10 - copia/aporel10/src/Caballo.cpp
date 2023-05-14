@@ -78,9 +78,25 @@ bool Caballo::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero
 }
 void Caballo::getTipoPieza()
 {
-    std::cout << "soy un caballo";
-    if (color == -1)
-        std::cout << "blanco";
-    else
-        std::cout << "negro";
+    std::ofstream archivoSalida;
+    archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
+
+    std::cout << "soy un caballo ";
+    if (color == -1) {
+        
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Caballo blanco" << std::endl;
+
+            archivoSalida.close();
+        }
+    }
+
+    else {
+       
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Caballo negro" << std::endl;
+
+            archivoSalida.close();
+        }
+    }
 }

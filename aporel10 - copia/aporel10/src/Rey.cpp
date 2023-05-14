@@ -69,9 +69,25 @@ bool Rey::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 }
 void Rey::getTipoPieza()
 {
-    std::cout << "soy un rey";
-    if (color == -1)
-        std::cout << "blanco";
-    else
-        std::cout << "negro";
+    std::ofstream archivoSalida;
+    archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
+
+    std::cout << "soy un rey ";
+    if (color == -1) {
+        //std::cout << "blanco";
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Rey blanco" << std::endl;
+
+            archivoSalida.close();
+        }
+    }
+
+    else {
+        //std::cout << "negro";
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Rey negro" << std::endl;
+
+            archivoSalida.close();
+        }
+    }
 }

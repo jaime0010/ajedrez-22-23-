@@ -90,9 +90,25 @@ bool Torre::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 }
 void Torre::getTipoPieza()
 {
+    std::ofstream archivoSalida;
+    archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
+
     std::cout << "soy una torre ";
-    if (color == -1)
-        std::cout << "blanca";
-    else
-        std::cout << "negra";
+    if (color == -1) {
+      
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Torre blanca" << std::endl;
+
+            archivoSalida.close();
+        }
+    }
+
+    else {
+        //std::cout << "negro";
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Torre negra negro" << std::endl;
+
+            archivoSalida.close();
+        }
+    }
 }

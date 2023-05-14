@@ -196,7 +196,20 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		else {
 			Tablero::coger = 1;
 			tab[y_dest][x_dest]->getTipoPieza();
-			std::cout << " y voy desde :" << x_org + 1 << "_" << y_org + 1 << " a " << x_dest + 1 << "_" << y_dest + 1 << std::endl;
+
+			std::ofstream archivoSalida;
+			archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
+
+			if (archivoSalida.is_open()) {
+				archivoSalida << "Posicion origen:" << x_org + 1<<"-"<< y_org + 1 << std::endl;
+				archivoSalida << "Posicion destino:" << x_dest + 1<<"-" << y_dest + 1 << std::endl;
+
+				archivoSalida.close();
+			}
+
+
+			
+			//std::cout << " y voy desde :" << x_org + 1 << "_" << y_org + 1 << " a " << x_dest + 1 << "_" << y_dest + 1 << std::endl;
 			if (comprobar_mate()==1)
 				std::cout << "JAQUE MATE, FIN DE LA PARTIDA ganan blancas\n\n\n\n\n";
 			if (comprobar_mate() == -1)

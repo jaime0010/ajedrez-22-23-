@@ -81,9 +81,27 @@ bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
 }
 void Reina::getTipoPieza()
 {
-    std::cout << "soy una reina";
-    if (color == -1)
-        std::cout << "blanca";
-    else
-        std::cout << "negra";
+ 
+
+    std::ofstream archivoSalida;
+    archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
+
+    std::cout << "soy una reina ";
+    if (color == -1) {
+        
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Reina Blanca" << std::endl;
+
+            archivoSalida.close();
+        }
+    }
+
+    else {
+       
+        if (archivoSalida.is_open()) {
+            archivoSalida << "Reina negra" << std::endl;
+
+            archivoSalida.close();
+        }
+    }
 }
