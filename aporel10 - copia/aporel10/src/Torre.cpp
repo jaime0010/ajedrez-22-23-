@@ -9,15 +9,39 @@ void Torre::dibuja()
     std::string negro, blanco;
 
     glEnable(GL_TEXTURE_2D);
-    if (modo == Tradicional) { // si hay mas de dos modos poner un swtich
 
+
+    switch (modo)
+    {
+    case(Tradicional):
+    {
         blanco = "lib/imagenes/torreblanca_tradicional.png";
         negro = "lib/imagenes/torrenegra_tradicional.png";
+        break;
     }
-    else {
+    case(StarWars):
+    {
         blanco = "lib/imagenes/torreblanca_StarWars.png";
         negro = "lib/imagenes/torrenegra_StarWars.png";
+        break;
     }
+    case(Etsidi):
+    {
+        blanco = "lib/imagenes/torreblanca_tradicional_ETSIDI.png";
+        negro = "lib/imagenes/torrenegra_tradicional_ETSIDI.png";
+        break;
+    }
+    }
+
+    //if (modo == Tradicional) { // si hay mas de dos modos poner un swtich
+
+    //    blanco = "lib/imagenes/torreblanca_tradicional.png";
+    //    negro = "lib/imagenes/torrenegra_tradicional.png";
+    //}
+    //else {
+    //    blanco = "lib/imagenes/torreblanca_StarWars.png";
+    //    negro = "lib/imagenes/torrenegra_StarWars.png";
+    //}
     if (color == BLANCO)glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(blanco.c_str()).id);
     else glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(negro.c_str()).id);
     glDisable(GL_LIGHTING);

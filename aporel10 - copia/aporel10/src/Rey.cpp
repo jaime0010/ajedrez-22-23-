@@ -6,15 +6,40 @@ void Rey::dibuja()
     std::string negro, blanco;
 
     glEnable(GL_TEXTURE_2D);
-    if (modo == Tradicional) { // si hay mas de dos modos poner un swtich
 
+
+    switch (modo)
+    {
+    case(Tradicional):
+    {
         blanco = "lib/imagenes/reyblanco_tradicional.png";
         negro = "lib/imagenes/reynegro_tradicional.png";
+        break;
     }
-    else {
+    case(StarWars):
+    {
         blanco = "lib/imagenes/reyblanco_StarWars.png";
         negro = "lib/imagenes/reynegro_StarWars.png";
+        break;
     }
+    case(Etsidi):
+    {
+        blanco = "lib/imagenes/reyblanco_tradicional_ETSIDI.png";
+        negro = "lib/imagenes/reynegro_tradicional_ETSIDI.png";
+        break;
+    }
+    }
+
+
+    //if (modo == Tradicional) { // si hay mas de dos modos poner un swtich
+
+    //    blanco = "lib/imagenes/reyblanco_tradicional.png";
+    //    negro = "lib/imagenes/reynegro_tradicional.png";
+    //}
+    //else {
+    //    blanco = "lib/imagenes/reyblanco_StarWars.png";
+    //    negro = "lib/imagenes/reynegro_StarWars.png";
+    //}
     if (color == BLANCO)glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(blanco.c_str()).id);
     else glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(negro.c_str()).id);
     glDisable(GL_LIGHTING);

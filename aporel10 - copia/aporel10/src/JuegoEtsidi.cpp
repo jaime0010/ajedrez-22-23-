@@ -13,15 +13,15 @@ void JuegoEtsidi::dibuja()
 	//tab.inicializa();
 	glEnable(GL_TEXTURE_2D);
 
-	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/FondoEtsidi.png").id);
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("lib/imagenes/FondoChess_ETSIDI.png").id);
 
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 1); glVertex3f(-15, -10, -1.5);
-	glTexCoord2d(1, 1); glVertex3f(15, -10, -1.5);
-	glTexCoord2d(1, 0); glVertex3f(15, 35, -1.5);
-	glTexCoord2d(0, 0); glVertex3f(-15, 35, -1.5);
+	glTexCoord2d(0, 1); glVertex3f(-25, -5, -20);
+	glTexCoord2d(1, 1); glVertex3f(28, -5, -20);
+	glTexCoord2d(1, 0); glVertex3f(28, 27, -20);
+	glTexCoord2d(0, 0); glVertex3f(-25, 27, -20);
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);

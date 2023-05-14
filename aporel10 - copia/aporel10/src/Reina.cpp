@@ -23,8 +23,8 @@ void Reina::dibuja()
         }
         case(Etsidi):
         {
-            blanco = "lib/imagenes/reinablanca_StarWars.png";
-            negro = "lib/imagenes/reinanegra_StarWars.png";
+            blanco = "lib/imagenes/reinablanca_tradicional_ETSIDI.png";
+            negro = "lib/imagenes/reinanegra_tradicional_ETSIDI.png";
             break;
         }
     }

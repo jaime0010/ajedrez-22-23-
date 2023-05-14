@@ -167,8 +167,8 @@ void Coordinador::Tecla(unsigned char key)
 						juego = new JuegoStarWars();
 					break;
 
-					case 'e':
-					case 'E':
+					case 'd':
+					case 'D':
 						estado = JUEGO;
 						juego = new JuegoEtsidi();
 						break;
