@@ -12,7 +12,6 @@ public:
 	//void inicializa();
 	
 protected:
-	 //int t = -1;
 	Tablero* tab;
 
 };

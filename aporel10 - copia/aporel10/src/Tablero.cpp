@@ -379,7 +379,7 @@ int Tablero::comprobar_mate() {
 
 		}
 	}
-	if (comprobar_jaque(tab)==1)
+	if (comprobar_jaque(tab)==1)// PARA LUEGO EL COORDINADOR PANG PONGA PANTALLAS DIFERENTES EN FUNCION DE QUIEN HAYA GANADADO
 	return 1;
 	else if (comprobar_jaque(tab) == -1)
 		return -1;

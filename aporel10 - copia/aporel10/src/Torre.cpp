@@ -33,15 +33,7 @@ void Torre::dibuja()
     }
     }
 
-    //if (modo == Tradicional) { // si hay mas de dos modos poner un swtich
 
-    //    blanco = "lib/imagenes/torreblanca_tradicional.png";
-    //    negro = "lib/imagenes/torrenegra_tradicional.png";
-    //}
-    //else {
-    //    blanco = "lib/imagenes/torreblanca_StarWars.png";
-    //    negro = "lib/imagenes/torrenegra_StarWars.png";
-    //}
     if (color == BLANCO)glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(blanco.c_str()).id);
     else glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(negro.c_str()).id);
     glDisable(GL_LIGHTING);
@@ -104,9 +96,8 @@ void Torre::getTipoPieza()
     }
 
     else {
-        //std::cout << "negro";
         if (archivoSalida.is_open()) {
-            archivoSalida << "Torre negra negro" << std::endl;
+            archivoSalida << "Torre negra " << std::endl;
 
             archivoSalida.close();
         }

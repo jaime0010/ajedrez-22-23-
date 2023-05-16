@@ -31,18 +31,6 @@ void Caballo::dibuja()
     }
 
 
-    //if (modo == Tradicional) { // si hay mas de dos modos poner un swtich
-
-    //    blanco = "lib/imagenes/caballoblanco_tradicional.png";
-    //    negro = "lib/imagenes/caballonegro_tradicional.png";
-    //}
-    //else {
-    //    blanco = "lib/imagenes/caballoblanco_StarWars.png";
-    //    negro = "lib/imagenes/caballonegro_StarWars.png";
-    //}
-
-
-
     if (color == BLANCO)glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(blanco.c_str()).id);
     else glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(negro.c_str()).id);
     glDisable(GL_LIGHTING);

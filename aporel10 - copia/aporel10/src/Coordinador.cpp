@@ -63,10 +63,7 @@ void Coordinador::dibuja()
 		glEnd();
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
-		//Recuadro.draw();
-		
-		
-		
+
 
 		gluLookAt(
 			0, 7.5, 30, // posicion del ojo
@@ -96,18 +93,6 @@ void Coordinador::dibuja()
 		ETSIDI::printxy(" al menu: Pulse A", 10, 10);
 
 
-		std::ifstream ArchivoSalida("lib/ficheros/Partida.txt", std::ios::in | std::ios::ate); // Abrir el archivo en modo lectura y obtener su tamaño
-
-		if (ArchivoSalida.tellg() == 0) {
-			std::cout << "El archivo está vacío." << std::endl;
-		}
-		else {
-			std::ofstream outputFile("lib/ficheros/Partida.txt", std::ios::out | std::ios::trunc); // Abrir el archivo en modo escritura y truncar su contenido
-			outputFile.close();
-			std::cout << "El archivo se ha vaciado correctamente." << std::endl;
-		}
-
-		ArchivoSalida.close();
 			
 	}
 	else if (estado == JUEGO) 
@@ -117,9 +102,7 @@ void Coordinador::dibuja()
 	}
 
 	else if (estado == MATE_AL_BLANCO) {
-		//std::cout << "\n\n\n\n" << tab.comprobar_mate() <<"\n\n\n\n";
 			Mate_al_blanco.draw();
-
 			gluLookAt(
 				0, 7.5, 30, // posicion del ojo
 				0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
@@ -130,14 +113,14 @@ void Coordinador::dibuja()
 			ETSIDI::printxy("GANAN LAS NEGRAS", -18, 25);
 			ETSIDI::setTextColor(1, 1, 1);
 			ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 10);
-			ETSIDI::printxy("PULSE LA TECLA -E- PARA COMPROBAR EL MATE", -18, 20);
+			ETSIDI::printxy("PULSE LA TECLA -E- PARA VOLVER AL MENU", -18, 20);
 			ETSIDI::setTextColor(1, 1, 1);
 			ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 12);
 			ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Felipe de Gracia, Victor Alcolea, Nikita Zhukov", -18, 5);
 			ETSIDI::setTextColor(1, 0, 0);
 	}
 	else if (estado == MATE_AL_NEGRO) {
-		//std::cout << "\n\n\n\n" << tab.comprobar_mate() << "\n\n\n\n";
+
 		Mate_al_negro.draw();
 
 		gluLookAt(
@@ -150,13 +133,33 @@ void Coordinador::dibuja()
 		ETSIDI::printxy("GANAN LAS BLANCAS", -18, 25);
 		ETSIDI::setTextColor(0, 0, 0);
 		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 10);
-		ETSIDI::printxy("PULSE LA TECLA -E- PARA COMPROBAR EL MATE", -18, 20);
+		ETSIDI::printxy("PULSE LA TECLA -E- PARA VOLVER AL MENU", -18, 20);
 		ETSIDI::setTextColor(0, 0, 0);
 		ETSIDI::setFont("lib/fuentes/Bitwise.ttf", 12);
 		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Nikita Zhukov, Felipe de Gracia,Victor Alcolea", -18, 5);
 		ETSIDI::setTextColor(0, 0, 0);
 	}
 
+}
+
+void Coordinador::fichero() // FUNCION QUE ABRE EL FICHERO 
+{
+	if (estado == INICIO)
+	{
+
+		std::ifstream ArchivoSalida("lib/ficheros/Partida.txt", std::ios::in | std::ios::ate); // Abrir el archivo en modo lectura y obtener su tamaño
+
+		if (ArchivoSalida.tellg() == 0) {
+			std::cout << "El archivo está vacío." << std::endl;
+		}
+		else {
+			std::ofstream outputFile("lib/ficheros/Partida.txt", std::ios::out | std::ios::trunc); // Abrir el archivo en modo escritura y truncar su contenido
+			outputFile.close();
+			std::cout << "El archivo se ha vaciado correctamente." << std::endl;
+		}
+
+		ArchivoSalida.close();
+	}
 }
 
 void Coordinador::teclaEspecial(unsigned char key)
