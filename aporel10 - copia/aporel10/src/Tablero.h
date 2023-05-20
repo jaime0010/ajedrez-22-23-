@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include "freeglut.h"
+#include "Pieza.h"
 #include "Peon.h"
 #include "Rey.h"
 #include "Reina.h"
@@ -18,6 +19,7 @@
 
 class Tablero
 {
+
 protected:
 	Vector2D* pos_origen, * pos_final, * origen;
 	int turno = -1;	//-1=turno blancas; 1= turno negras
@@ -40,9 +42,10 @@ public:
 	bool coger_posiciones(int, int, int, int);
 	int comprobar_jaque(Pieza*[columnas][filas]);
 	int comprobar_mate();
-
+	char convertirPosicion(int);
 
 	//// Metodos getters para que esten en protegidos nuestras variables
+	std::string print_turno();
 	int get_turno();
 	int get_coger();
 	int get_x();
@@ -52,4 +55,9 @@ public:
 	void set_coger(int);
 	void set_x(int);
 	void set_y(int);
+
+
+private:
+	char numeroALetra[8];
 };
+

@@ -2,6 +2,26 @@
 #include "Peon.h"
 #include"Tablero.h"
 
+
+std::string Peon::getTipo()
+{
+    return "PEON";
+}
+std::string Peon::getColor()
+{
+    switch (this->color)
+    {
+    case BLANCO:
+        return "BLANCO";
+        break;
+    case NEGRO:
+        return "NEGRO";
+        break;
+    default:
+        return "NULL";
+        break;
+    }
+}
 void Peon::dibuja()
 {
     //ELEGIMOS COLOR DEL FONDO DE LA IMAGEN
@@ -125,7 +145,7 @@ void Peon::getTipoPieza()
     std::ofstream archivoSalida;
     archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
 
-    std::cout << "soy un peon ";
+    
     if (color == -1) {
         //std::cout << "blanco";
         if (archivoSalida.is_open()) {

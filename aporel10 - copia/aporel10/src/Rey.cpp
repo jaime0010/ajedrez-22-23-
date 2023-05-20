@@ -1,5 +1,27 @@
 #include "Rey.h"
 #include"Tablero.h"
+
+std::string Rey::getTipo()
+{
+    return "REY";
+}
+
+std::string Rey::getColor()
+{
+    switch (this->color)
+    {
+    case BLANCO:
+        return "BLANCO";
+        break;
+    case NEGRO:
+        return "NEGRO";
+        break;
+    default:
+        return "NULL";
+        break;
+    }
+}
+
 void Rey::dibuja()
 {
 
@@ -62,7 +84,6 @@ void Rey::getTipoPieza()
     std::ofstream archivoSalida;
     archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
 
-    std::cout << "soy un rey ";
     if (color == -1) {
         //std::cout << "blanco";
         if (archivoSalida.is_open()) {

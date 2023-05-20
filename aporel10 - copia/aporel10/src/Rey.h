@@ -12,5 +12,8 @@ public:
 	void dibuja();
 	bool validar_mov(Vector2D*, Vector2D*, Tablero&);
 	void getTipoPieza();
+	std::string getTipo();
+	std::string getColor();
+
 
 };

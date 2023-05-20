@@ -87,12 +87,33 @@ bool Alfil::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
             return true;
 
 }
+
+std::string Alfil::getTipo()
+{
+    return "ALFIL";
+}
+
+std::string Alfil::getColor()
+{
+    switch (this->color)
+    {
+    case BLANCO:
+        return "BLANCO";
+        break;
+    case NEGRO:
+        return "NEGRO";
+        break;
+    default:
+        return "NULL";
+        break;
+    }
+}
+
 void Alfil::getTipoPieza()
 {
     std::ofstream archivoSalida;
     archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
 
-    std::cout << "soy un alfil ";
     if (color == -1) {
         //std::cout << "blanco";
         if (archivoSalida.is_open()) {

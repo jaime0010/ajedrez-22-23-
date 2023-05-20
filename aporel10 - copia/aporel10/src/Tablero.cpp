@@ -44,6 +44,14 @@ Tablero::Tablero(EstiloModoJuego modo)
 	pos_origen = new Vector2D(0, 0);
 	pos_final = new Vector2D(0, 0);
 	
+	numeroALetra[0] = 'A';
+	numeroALetra[1] = 'B';
+	numeroALetra[2] = 'C';
+	numeroALetra[3] = 'D';
+	numeroALetra[4] = 'E';
+	numeroALetra[5] = 'F';
+	numeroALetra[6] = 'G';
+	numeroALetra[7] = 'H';
 }
 
 Tablero::~Tablero()
@@ -142,7 +150,7 @@ void Tablero::dibuja()
 bool Tablero::hay_pieza(int x, int y)
 {
 	if (tab[y][x]) {//se pone'-1' porque las piezas van de 0 a 7 y las coordenadas de 1 a 8
-		quien_soy(tab[y][x]);
+		//quien_soy(tab[y][x]);
 		return (true);
 	}
 	else {
@@ -150,9 +158,10 @@ bool Tablero::hay_pieza(int x, int y)
 	}
 }
 
+
 void Tablero::quien_soy(Pieza* tab)
 {
-	std::cout << "soy de tipo " << tab->pieza << " y color " << tab->color << std::endl;
+	std::cout << "soy de tipo " << tab->getTipo() << " y color " << tab->getColor() << std::endl;
 }
 
 bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
@@ -196,13 +205,13 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		else {
 			Tablero::coger = 1;
 			tab[y_dest][x_dest]->getTipoPieza();
-
+			quien_soy(tab[y_dest][x_dest]);
 			std::ofstream archivoSalida;
 			archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
 
 			if (archivoSalida.is_open()) {
-				archivoSalida << "Posicion origen:" << x_org + 1<<"-"<< y_org + 1 << std::endl;
-				archivoSalida << "Posicion destino:" << x_dest + 1<<"-" << y_dest + 1 << std::endl;
+				archivoSalida << "Posicion origen:" << convertirPosicion(x_org + 1) << "-" << y_org + 1 << std::endl;
+				archivoSalida << "Posicion destino:" << convertirPosicion(x_dest + 1) <<"-" << y_dest + 1 << std::endl;
 
 				archivoSalida.close();
 			}
@@ -268,12 +277,12 @@ int Tablero::comprobar_jaque(Pieza *ta[columnas][filas])
 					if (ta[i][j]->color == -1) {//rey blanco
 						xb = j;
 						yb = i;
-						std::cout << "rey blanco en x:" << xb + 1 << " y:" << yb + 1 << std::endl;
+						//std::cout << "rey blanco en x:" << xb + 1 << " y:" << yb + 1 << std::endl;
 					}
 					else {//rey negro es color 1
 						xn = j;
 						yn = i;
-						std::cout << "rey negro en x:" << xn + 1 << " y:" << yn + 1 << std::endl;
+						//std::cout << "rey negro en x:" << xn + 1 << " y:" << yn + 1 << std::endl;
 					}
 				}
 			}		
@@ -386,6 +395,24 @@ int Tablero::comprobar_mate() {
 
 }
 
+char Tablero::convertirPosicion(int pos)
+{
+	if (pos >= 1 && pos <= 8)
+	{
+		return numeroALetra[pos];
+	}
+}
+
+std::string Tablero::print_turno()
+{
+	if (this->turno == -1)
+		return "BLANCAS";
+	else if (this->turno == 1)
+		return "NEGRAS";
+	else
+		return "NULL";
+}
+
 int Tablero::get_turno()
 {
 	return turno;
@@ -427,5 +454,4 @@ void Tablero::set_y(int y)
 {
 	y_org = y;
 }
-	
 

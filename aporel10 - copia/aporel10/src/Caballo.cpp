@@ -1,6 +1,28 @@
 #include "Caballo.h"
 #include"Tablero.h"
 
+
+std::string Caballo::getTipo()
+{
+    return "CABALLO";
+}
+
+std::string Caballo::getColor()
+{
+    switch (this->color)
+    {
+    case BLANCO:
+        return "BLANCO";
+        break;
+    case NEGRO:
+        return "NEGRO";
+        break;
+    default:
+        return "NULL";
+        break;
+    }
+}
+
 void Caballo::dibuja()
 {
 
@@ -69,7 +91,7 @@ void Caballo::getTipoPieza()
     std::ofstream archivoSalida;
     archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
 
-    std::cout << "soy un caballo ";
+    
     if (color == -1) {
         
         if (archivoSalida.is_open()) {

@@ -33,7 +33,7 @@ int JuegoEtsidi::mueve(int x_dest, int y_dest)
 
 	if (x_dest == -1 || y_dest == -1) {
 		std::cout << " CASILLA FUERA DE LIMITES " << std::endl;
-		ETSIDI::playMusica("lib/sonidos/sable-laser-.mp3"); //poner sonido de disparo en el modo de star wars
+		ETSIDI::playMusica("lib/sonidos/AUDIO_SANSE.mp3"); //poner sonido de disparo en el modo de star wars
 		tab->set_coger(1);
 
 		return 0;
@@ -49,13 +49,13 @@ int JuegoEtsidi::mueve(int x_dest, int y_dest)
 			if (tab->get_turno() < 0)
 			{
 				tab->set_turno(1);
-				std::cout << "Turno = " << tab->get_turno() << std::endl;
+				std::cout << "Turno => " << tab->print_turno() << std::endl;
 
 			}
 			else
 			{
 				tab->set_turno(-1);
-				std::cout << "Turno = " << tab->get_turno() << std::endl;
+				std::cout << "Turno => " << tab->print_turno() << std::endl;
 			}
 
 		}

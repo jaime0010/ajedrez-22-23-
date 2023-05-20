@@ -2,6 +2,26 @@
 #include"Tablero.h"
 #include "Tablero.h"
 
+std::string Torre::getTipo()
+{
+    return "TORRE";
+}
+
+std::string Torre::getColor()
+{
+    switch (this->color)
+    {
+    case BLANCO:
+        return "BLANCA";
+        break;
+    case NEGRO:
+        return "NEGRA";
+        break;
+    default:
+        return "NULL";
+        break;
+    }
+}
 
 void Torre::dibuja()
 {
@@ -85,7 +105,6 @@ void Torre::getTipoPieza()
     std::ofstream archivoSalida;
     archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
 
-    std::cout << "soy una torre ";
     if (color == -1) {
       
         if (archivoSalida.is_open()) {

@@ -2,6 +2,28 @@
 #include"Tablero.h"
 #include  <string>
 
+
+std::string Reina::getTipo()
+{
+    return "REINA";
+}
+
+std::string Reina::getColor()
+{
+    switch (this->color)
+    {
+    case BLANCO:
+        return "BLANCA";
+        break;
+    case NEGRO:
+        return "NEGRA";
+        break;
+    default:
+        return "NULL";
+        break;
+    }
+}
+
 void Reina::dibuja()
 {
 
@@ -86,7 +108,6 @@ void Reina::getTipoPieza()
     std::ofstream archivoSalida;
     archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
 
-    std::cout << "soy una reina ";
     if (color == -1) {
         
         if (archivoSalida.is_open()) {

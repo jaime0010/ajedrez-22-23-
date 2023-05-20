@@ -51,13 +51,13 @@ int JuegoStarWars::mueve(int x_dest, int y_dest)
 			if (tab->get_turno() < 0)
 			{
 				tab->set_turno(1);
-				std::cout << "Turno = " << tab->get_turno() << std::endl;
+				std::cout << "Turno => " << tab->print_turno() << std::endl;
 
 			}
 			else
 			{
 				tab->set_turno(-1);
-				std::cout << "Turno = " << tab->get_turno() << std::endl;
+				std::cout << "Turno => " << tab->print_turno() << std::endl;
 			}
 				
 		}
