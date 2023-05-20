@@ -6,6 +6,8 @@ JuegoStarWars::JuegoStarWars()
 {
 
 	tab = new Tablero(StarWars);
+	std::cout << "\t-----------Bienvenid@s a Juego Star Wars----------\t" << std::endl;
+
 }
 
 void JuegoStarWars::dibuja()

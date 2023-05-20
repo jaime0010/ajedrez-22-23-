@@ -205,7 +205,10 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		else {
 			Tablero::coger = 1;
 			tab[y_dest][x_dest]->getTipoPieza();
+
 			quien_soy(tab[y_dest][x_dest]);
+			std::cout <<  this->convertirPosicion(this->pos_origen->x) << "-" << this->pos_origen->y + 1 << "========>" << this->convertirPosicion(this->pos_final->x) << "-"<<this->pos_final->y + 1 <<std::endl;
+
 			std::ofstream archivoSalida;
 			archivoSalida.open("lib/ficheros/Partida.txt", std::ofstream::app);
 
@@ -304,7 +307,7 @@ int Tablero::comprobar_jaque(Pieza *ta[columnas][filas])
 					origen.x = j;
 					origen.y = i;
 					if (ta[origen.y][origen.x]->validar_mov(&reyb, &origen, *this)) {//si alguna pieza negra puede llegar al reyb
-						std::cout << "jaque al blanco señores";
+						std::cout << "jaque al blanco senyores" << std::endl;
 						return -1;
 					}
 					else continue;
@@ -324,7 +327,7 @@ int Tablero::comprobar_jaque(Pieza *ta[columnas][filas])
 					origen.x = j;
 					origen.y = i;
 					if (ta[origen.y][origen.x]->validar_mov(&reyn, &origen, *this)) {//si alguna pieza negra puede llegar al reyb
-						std::cout << "jaque al negro señores";
+						std::cout << "jaque al negro senyores" << std::endl;
 						return 1;
 					}
 					else continue;
@@ -395,7 +398,7 @@ int Tablero::comprobar_mate() {
 
 }
 
-char Tablero::convertirPosicion(int pos)
+char Tablero::convertirPosicion(int pos) const
 {
 	if (pos >= 1 && pos <= 8)
 	{

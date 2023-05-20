@@ -5,6 +5,8 @@ JuegoEtsidi::JuegoEtsidi()
 {
 
 	tab = new Tablero(Etsidi);
+	std::cout << "\t-----------Bienvenid@s a Juego ETSIDI----------\t" << std::endl;
+
 }
 
 void JuegoEtsidi::dibuja()

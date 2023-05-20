@@ -12,8 +12,8 @@
 #include "Caballo.h"
 #include"Vector2D.h"
 
-#define filas 8
-#define columnas 8
+constexpr int filas = 8;
+constexpr int columnas = 8;
 
 
 
@@ -42,7 +42,7 @@ public:
 	bool coger_posiciones(int, int, int, int);
 	int comprobar_jaque(Pieza*[columnas][filas]);
 	int comprobar_mate();
-	char convertirPosicion(int);
+	char convertirPosicion(int) const;
 
 	//// Metodos getters para que esten en protegidos nuestras variables
 	std::string print_turno();
@@ -56,8 +56,24 @@ public:
 	void set_x(int);
 	void set_y(int);
 
+	//friend std::ostream& operator<<(std::ostream& o, const Tablero&);
+	//std::ostream& print_coord(std::ostream& o = std::cout) const;
 
 private:
 	char numeroALetra[8];
 };
+
+
+//std::ostream& Tablero::print_coord(std::ostream& o) const 
+//{
+//	o << this->pos_origen->x << "-" << this-> << "======>" << this->convertirPosicion(this->pos_final->y) << "-" << this->pos_final->y;
+//	return o;
+//}
+
+//
+//std::ostream& operator<<(std::ostream &o, const Tablero& tab)
+//{
+//	return tab.print_coord(o);
+//
+//}
 

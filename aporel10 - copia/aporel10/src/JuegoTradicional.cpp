@@ -5,6 +5,7 @@ JuegoTradicional::JuegoTradicional()
 {
 
 	tab = new Tablero(Tradicional);
+	std::cout << "\t-----------Bienvenid@s a Juego Tradicional----------\t" << std::endl;
 }
 
 void JuegoTradicional::dibuja()
@@ -34,7 +35,7 @@ int JuegoTradicional::mueve(int x_dest, int y_dest)
 	yorig = tab.y_org;*/
 	if (x_dest == -1 || y_dest == -1) {
 		std::cout << " CASILLA FUERA DE LIMITES " << std::endl;
-		ETSIDI::playMusica("lib/sonidos/sable-laser-.mp3"); //poner sonido de disparo en el modo de star wars
+		ETSIDI::playMusica("lib/sonidos/disparo.mp3"); //poner sonido de disparo en el modo de star wars
 		//tab->coger = 1;
 		tab->set_coger(1);
 
