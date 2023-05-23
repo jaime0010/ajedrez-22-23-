@@ -80,7 +80,7 @@ void Coordinador::dibuja()
 		ETSIDI::printxy("Modo StarWars : Pulse S", -16, 18);
 		ETSIDI::setTextColor(0, 1, 0);
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 10);
-		ETSIDI::printxy("Modo ETSIDI : Pulse D", -15, 12);
+		ETSIDI::printxy("Modo ETSIDI : Pulse d", -15, 12);
 		ETSIDI::setTextColor(1, 200, 1);
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 5);
 		ETSIDI::printxy("Realizado por: Pablo Nuniez, Jaime Bustos, Felipe de Gracia, Nikita Zhukov, Victor Alcolea", -18, 5);

@@ -21,8 +21,8 @@ void JuegoTradicional::dibuja()
 	glColor3f(1, 1, 1);
 	glTexCoord2d(0, 1); glVertex3f(-15, -10, -1.5);
 	glTexCoord2d(1, 1); glVertex3f(15, -10, -1.5);
-	glTexCoord2d(1, 0); glVertex3f(15, 35, -1.5);
-	glTexCoord2d(0, 0); glVertex3f(-15, 35, -1.5);
+	glTexCoord2d(1, 0); glVertex3f(20, 35, -1.5);
+	glTexCoord2d(0, 0); glVertex3f(-20, 35, -1.5);
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
