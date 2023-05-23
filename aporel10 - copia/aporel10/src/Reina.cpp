@@ -90,7 +90,7 @@ bool Reina::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
     }
     if (tablero.tab[posfinal->y][posfinal->x] != nullptr)//si en la ultima casiilla hay pieza
     {
-        if (tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)
+        if (tablero.tab[posfinal->y][posfinal->x]->get_Color() != tablero.tab[posini->y][posini->x]->get_Color())
         {//si el objetivo es de otro color
             full--;
         }

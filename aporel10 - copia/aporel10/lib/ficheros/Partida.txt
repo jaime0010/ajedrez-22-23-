@@ -1,3 +1,15 @@
 Peon blanco
-Posicion origen:D-2
-Posicion destino:D-4
+Posicion origen:F-2
+Posicion destino:F-4
+Peon negro
+Posicion origen:F-7
+Posicion destino:F-5
+Peon blanco
+Posicion origen:E-2
+Posicion destino:E-4
+Peon negro
+Posicion origen:E-7
+Posicion destino:E-5
+Peon blanco
+Posicion origen:F-4
+Posicion destino:E-5

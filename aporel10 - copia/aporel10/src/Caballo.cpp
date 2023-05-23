@@ -73,7 +73,7 @@ bool Caballo::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero
     {
         if (tablero.tab[posfinal->y][posfinal->x] == nullptr)//si no hay pieza
             return true;
-        else if (tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)//si son del  mismo color
+        else if (tablero.tab[posfinal->y][posfinal->x]->get_Color() != tablero.tab[posini->y][posini->x]->get_Color())//si son del  mismo color
             return true;
         else {
             return false;

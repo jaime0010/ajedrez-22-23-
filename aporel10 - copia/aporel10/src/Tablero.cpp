@@ -95,7 +95,7 @@ void Tablero::dibuja()
 			fn.x = columna;
 			fn.y = fila;
 			//Colorea la casilla seleccionada
-			if (columna == x_org && fila == y_org && tab[y_org][x_org]->color==turno) {
+			if (columna == x_org && fila == y_org && tab[y_org][x_org]->get_Color() == turno) {
 				//Colorea las casillas disponibles
 				for (int i = 0; i < 8; i++)
 				{
@@ -135,7 +135,7 @@ void Tablero::dibuja()
 				glEnable(GL_LIGHTING);
 
 			}
-			else if (tab[origen.y][origen.x] != nullptr && tab[origen.y][origen.x]->validar_mov(&fn, &origen, *this)  && tab[origen.y][origen.x]->color == turno) glColor3ub(0, 0, 255);
+			else if (tab[origen.y][origen.x] != nullptr && tab[origen.y][origen.x]->validar_mov(&fn, &origen, *this)  && tab[origen.y][origen.x]->get_Color() == turno) glColor3ub(0, 0, 255);
 			else if ((fila + columna) % 2 == 0) glColor3ub(245, 203, 138);
 			else glColor3ub(70, 41, 5);;
 			glPushMatrix();
@@ -176,7 +176,7 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		return false;
 
 	//Si no hay jaque, comprobamos posibles movimientos siempre que no se genere un jaque
-	if ((tab[y_org][x_org]->color == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
+	if ((tab[y_org][x_org]->get_Color() == turno)/*Comprueba que la pieza seleccionada sea la que toca segun el turno*/
 		&& (tab[y_org][x_org]->validar_mov(pos_final, pos_origen, *this))&& comprobar_jaque(tab)==0)
 	{
 
@@ -231,7 +231,7 @@ bool Tablero::coger_posiciones(int x_org, int y_org, int x_dest, int y_dest)
 		}
 	}
 	//Si ya hay jaque limitamos los posibles movimientos a los cuales sacarian al rey de jaque
-	else if ((tab[y_org][x_org]->color == turno) && (tab[y_org][x_org]->validar_mov(pos_final, pos_origen, *this)) 
+	else if ((tab[y_org][x_org]->get_Color() == turno) && (tab[y_org][x_org]->validar_mov(pos_final, pos_origen, *this))
 		&& comprobar_jaque(tab) != 0) {
 
 		//Se crea otra matriz de piezas y se copia el contenido de tab, para "simular" el movimiento
@@ -276,9 +276,9 @@ int Tablero::comprobar_jaque(Pieza *ta[columnas][filas])
 	{
 		for (j = 0; j < 8; j++)
 			if (ta[i][j] != nullptr) {
-				if (ta[i][j]->pieza == 0)//es un rey
+				if (ta[i][j]->getPieza() == 0)//es un rey
 				{
-					if (ta[i][j]->color == -1) {//rey blanco
+					if (ta[i][j]->get_Color() == -1) {//rey blanco
 						xb = j;
 						yb = i;
 						//std::cout << "rey blanco en x:" << xb + 1 << " y:" << yb + 1 << std::endl;
@@ -303,7 +303,7 @@ int Tablero::comprobar_jaque(Pieza *ta[columnas][filas])
 		for (j = 0; j < 8; j++)
 		{
 			if (ta[i][j] != nullptr) {//si hay pieza
-				if (ta[i][j]->color == 1)//la pieza es negra
+				if (ta[i][j]->get_Color() == 1)//la pieza es negra
 				{
 					origen.x = j;
 					origen.y = i;
@@ -324,7 +324,7 @@ int Tablero::comprobar_jaque(Pieza *ta[columnas][filas])
 		for (j = 0; j < 8; j++)
 		{
 			if (ta[i][j] != nullptr) {//si hay pieza
-				if (ta[i][j]->color == -1)//la pieza es blanca
+				if (ta[i][j]->get_Color() == -1)//la pieza es blanca
 				{
 					origen.x = j;
 					origen.y = i;
@@ -357,7 +357,7 @@ int Tablero::comprobar_mate() {
 		for (int j = 0; j < 8; j++) {
 			pos_inicial.x = i;
 			pos_inicial.y = j;
-			if (tab[j][i] != nullptr && tab[j][i]->color != turno) {
+			if (tab[j][i] != nullptr && tab[j][i]->get_Color() != turno) {
 				//Recorre tab buscando casillas validas
 				for (int k = 0; k < 8; k++)
 				{

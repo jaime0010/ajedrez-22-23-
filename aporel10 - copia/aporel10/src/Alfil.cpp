@@ -64,7 +64,7 @@ bool Alfil::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
         if (tablero.tab[y][x] != nullptr) {
 
             //Si la pieza en la trayectoria es en la casilla destino y es de otro color la come
-            if (x == posfinal->x && y == posfinal->y && tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color) {
+            if (x == posfinal->x && y == posfinal->y && tablero.tab[posfinal->y][posfinal->x]->get_Color() != tablero.tab[posini->y][posini->x]->get_Color()) {
                 
                 return true;
             }

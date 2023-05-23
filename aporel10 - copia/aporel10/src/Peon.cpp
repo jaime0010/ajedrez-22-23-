@@ -114,7 +114,7 @@ bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen, Tablero& table
                     if (tablero.tab[y][x] == nullptr)
                         return false;
                     //Si hay pieza y no es del mismo color avanza
-                    else if (tablero.tab[pos_final->y][pos_final->x]->color != tablero.tab[pos_origen->y][pos_origen->x]->color)
+                    else if (tablero.tab[pos_final->y][pos_final->x]->get_Color() != tablero.tab[pos_origen->y][pos_origen->x]->get_Color())
                         return true;
                     else return false;
                 }
@@ -129,7 +129,7 @@ bool Peon::validar_mov(Vector2D* pos_final, Vector2D* pos_origen, Tablero& table
                     if (tablero.tab[y][x] == nullptr)
                         return false;
                     //Si hay pieza y no es del mismo color avanza
-                    else if (tablero.tab[pos_final->y][pos_final->x]->color != tablero.tab[pos_origen->y][pos_origen->x]->color)
+                    else if (tablero.tab[pos_final->y][pos_final->x]->get_Color() != tablero.tab[pos_origen->y][pos_origen->x]->get_Color())
                         return true;
                     else return false;
                 }

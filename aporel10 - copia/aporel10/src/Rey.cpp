@@ -71,7 +71,7 @@ bool Rey::validar_mov(Vector2D* posfinal, Vector2D* posini, Tablero& tablero)
     {
         if (tablero.tab[posfinal->y][posfinal->x] == nullptr)//si la casilla está vacía, no hay que comprobar color de pieza
             return true;
-        else if (tablero.tab[posfinal->y][posfinal->x]->color != tablero.tab[posini->y][posini->x]->color)
+        else if (tablero.tab[posfinal->y][posfinal->x]->get_Color() != tablero.tab[posini->y][posini->x]->get_Color())
             return true;
         else
             return false;
