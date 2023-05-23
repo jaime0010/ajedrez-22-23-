@@ -91,6 +91,8 @@ void Coordinador::dibuja()
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("lib/fuentes/04B_20__.ttf", 10);
 		ETSIDI::printxy(" al menu: Pulse A", 10, 10);
+		fichero();
+
 
 
 			
@@ -142,7 +144,7 @@ void Coordinador::dibuja()
 
 }
 
-void Coordinador::fichero() // FUNCION QUE ABRE EL FICHERO 
+ void Coordinador::fichero() // FUNCION QUE ABRE EL FICHERO 
 {
 	if (estado == INICIO)
 	{
@@ -179,6 +181,7 @@ void Coordinador::Tecla(unsigned char key)
 					case 'T':
 						estado = JUEGO;
 						juego = new JuegoTradicional();
+						
 					break;
 
 					case 's':

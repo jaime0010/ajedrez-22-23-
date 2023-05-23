@@ -15,7 +15,7 @@ public:
 	void Tecla(unsigned char key);	
 	void seleccionaPosicion(int, int);
 	void dibuja();
-	void fichero();
+	virtual void fichero();
 
 	
 
